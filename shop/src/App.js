@@ -1,24 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import MainPage from './MainPage';
+import DetailImformationPage from './DetailImformationPage';
+import LoginPage from './LoginPage';
+import MyPageAfter from './MyPageAfter';
+import MyPageBefor from './MyPageBefor';
+import MyPageCancle from './MyPageCancle';
+import RegisterCampingPage from './RegisterCampingPage';
+import RegisterSitePage from './RegisterSitePage';
+import ReservationPage from './ReservationPage';
+import ReservationSuccessPage from './ReservationSuccessPage';
+import SearchResultPage from './SearchResultPage';
+import WriteReviewPage from './WriteReviewPage';
+import WriteReviewCheck from './WriteReviewCheck';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <DetailImformationPage/>
   );
 }
 
