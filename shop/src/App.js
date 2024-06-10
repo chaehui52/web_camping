@@ -16,7 +16,7 @@ import WriteReviewCheck from './WriteReviewCheck';
 
 function App() {
   return (
-   <DetailImformationPage/>
+   <MyPageAfter/>
   );
 }
 
