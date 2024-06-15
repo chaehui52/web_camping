@@ -1,2 +1,2 @@
-import WriteReviewPage from "../page/ReviewPage/WriteReviewPage";
+import WriteReviewPage from "../view/ReviewPage/WriteReviewPage";
 
