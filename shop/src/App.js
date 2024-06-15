@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+import logo from './logo.svg'
 import './App.css';
 import MainPage from './MainPage';
 import DetailImformationPage from './DetailImformationPage';
 import LoginPage from './LoginPage';
 import MyPageAfter from './MyPageAfter';
-import MyPageBefor from './MyPageBefor';
+// import MyPageBefor from './MyPagebefor';
 import MyPageCancle from './MyPageCancle';
 import RegisterCampingPage from './RegisterCampingPage';
 import RegisterSitePage from './RegisterSitePage';
@@ -16,7 +16,7 @@ import WriteReviewCheck from './WriteReviewCheck';
 
 function App() {
   return (
-   <DetailImformationPage/>
+   <MyPageAfter/>
   );
 }
 
