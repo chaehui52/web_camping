@@ -3,15 +3,15 @@
 const mysql = require('./config.js');
 
 const user = {
-    login: async function () {
-        try {
-            // const [result] = await mysql.query("SELECT p.Title, p.Content, p.Like, p.Category, u.Nickname COUNT(*) AS CommentCount FROM Comment c JOIN Post p ON c.PostId = p.PostId;FROM Post p JOIN USER u ON p.USERId = u.USERId;");
-            const [result] = await mysql.query("SELECT p.Title, p.Content, p.Like, p.Category, u.Nickname, COUNT(c.CommentId) AS CommentCount FROM Post p JOIN USER u ON p.USERId = u.USERId LEFT JOIN Comment c ON p.PostId = c.PostId GROUP BY p.PostId, p.Title, p.Content, p.Like, p.Category, u.Nickname ORDER BY p.PostId DESC;");
+    login: async function (id, pw) {
+        try {   // TRUE : 로그인 성공, FALSE : 로그인 실패
+            const [result] = await mysql.query("SELECT IF(COUNT(*) = 0, 'false', 'true') AS result FROM USER WHERE USERId = ? AND Password = ?", [id, pw]);
+            console.log("로그인 조회 성공 : " + result)
             return result;
-        } catch (err) {
-            console.log("post: 전체 조회 모델 오류 발생");
+        } catch (error) {
+            console.log("user: login 조회 오류 발생");
         }
-    },
+    }
 }
 
 module.exports = user;

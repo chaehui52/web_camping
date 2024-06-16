@@ -9,6 +9,6 @@ const reviewController = {
             console.log("post: 게시글 목록 조회 컨트롤러 오류")
             res.json({ "result": "error" });
         }
-    },
+    }
 };
 module.exports = reviewController;

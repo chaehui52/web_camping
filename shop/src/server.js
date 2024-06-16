@@ -1,20 +1,11 @@
-const express = require("express");
-const path = require('path')
+const express = require('express');
 const app = express();
-const hostname = "127.0.0.1";
-const port = 3000;
-app.use(express.json());
 
-const reviewRouter = require("./routers/review");
-
-app.use(express.static('/'));
-app.use("/review", reviewRouter);
-
-
-//app.get(["/", "/hello"])
-app.get("/", function (req, res) {
-  return res.send("hello worlds");
+app.get('/', (req, res) => {
+    res.send('Hello, world!');
 });
-app.listen(port, hostname, function () {
-  console.log(`Server running at http://${hostname}:${port}/`);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

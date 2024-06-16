@@ -1,3 +1,4 @@
+
 import MainPage from './view/MainPage/MainPage';
 import DetailInformationPage from './view/MainPage/DetailInformationPage';
 import LoginPage from './view/LoginPage/LoginPage';
