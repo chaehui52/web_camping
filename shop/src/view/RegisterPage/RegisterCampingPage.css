@@ -1,0 +1,96 @@
+.container {
+    width: 600px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"], 
+  input[type="tel"] {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .address-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .address-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .manner-time-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .datePickerInput {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(50% - 20px);
+  }
+  
+  .manner-time-container span {
+    margin: 0 10px;
+    font-size: 1.2em;
+  }
+  
+  .facility-info {
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* 여기서 gap을 5px로 줄였습니다 */
+    margin-bottom: 10px;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    width: calc(33.3333% - 10px);
+  }
+  
+  button.next-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button.next-btn:hover {
+    background-color: #444;
+  }
+  

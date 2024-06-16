@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import '.ReviewPage//Review.css';
+import './Review.css';
 
 function WriteReviewCheck() {
   return (

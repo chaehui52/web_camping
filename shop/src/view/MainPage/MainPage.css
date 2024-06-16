@@ -1,0 +1,93 @@
+/* MainPage.css */
+
+.main-page {
+    width: 50%;
+    margin: 0 auto; /* 가운데 정렬 */
+  }
+  
+  .main-page-header {
+    text-align: left; /* 헤더 내의 텍스트를 왼쪽 정렬 */
+    margin-bottom: 30px; /* 아래 여백 추가 */
+  }
+  
+  .main-page-header h1 {
+    margin: 0; /* h1 요소의 여백을 초기화하여 추가 여백 없앰 */
+  }
+  
+  .camp-name-info,
+  .address-sido,
+  .address-sigungu,
+  .facility-type,
+  .checkin-time {
+    margin-bottom: 20px; /* 각 섹션 아래 여백 추가 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+  }
+  
+  .camp-name {
+    margin-right: 10px; /* 캠핑장 이름과 입력 필드 사이의 오른쪽 여백 설정 */
+  }
+  
+  .camping-address {
+    display: flex; /* 주소 입력 부분을 플렉스 박스로 표시 */
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+  }
+  
+  .sido-select,
+  .sigungu-select {
+    margin-left: 10px; /* 시/도 및 시/군/구 선택 입력 요소들 사이의 왼쪽 여백 추가 */
+    border: 1px solid #ccc; /* 테두리 설정 */
+    border-radius: 4px; /* 테두리 둥글게 처리 */
+    padding: 5px; /* 안쪽 여백 설정 */
+  }
+  
+  .camp-name-input {
+    border: 1px solid #ccc; /* 테두리 설정 */
+    border-radius: 4px; /* 테두리 둥글게 처리 */
+    padding: 5px; /* 안쪽 여백 설정 */
+    width: 200px; /* 너비 설정 */
+  }
+  
+  .checkin-time {
+    display: flex; /* 입실 시간 부분을 플렉스 박스로 표시 */
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+  }
+  
+  .custom-time-picker {
+    border: 1px solid #ccc; /* 테두리 설정 */
+    border-radius: 4px; /* 테두리 둥글게 처리 */
+    padding: 5px; /* 안쪽 여백 설정 */
+    width: 100px; /* 너비 설정 */
+    margin: 0 5px; /* 좌우 여백 설정 */
+  }
+  
+  .facilities {
+    text-align: center; /* 부대 시설 텍스트 가운데 정렬 */
+  }
+  
+  .facility-type {
+    display: flex; /* 시설 타입 선택 부분을 플렉스 박스로 표시 */
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+  }
+  
+  .facility-type input {
+    margin-right: 5px; /* 각 시설 타입 체크박스 사이의 오른쪽 여백 설정 */
+  }
+  
+  .search-btn {
+    background-color: #000; /* 배경색 설정 */
+    color: #fff; /* 텍스트 색상 설정 */
+    border: none; /* 테두리 없음 */
+    padding: 10px 20px; /* 안쪽 여백 설정 */
+    cursor: pointer; /* 커서 스타일 포인터로 변경 */
+    border-radius: 4px; /* 테두리 둥글게 처리 */
+    display: block; /* 블록 요소로 표시 */
+    margin: 0 auto; /* 가운데 정렬 */
+  }
+  
+  .react-time-picker__clear-button {
+    display: none; /* TimePicker 컴포넌트의 Clear 버튼 숨기기 */
+  }
+  

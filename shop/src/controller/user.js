@@ -1,14 +1,15 @@
 const review = require("../model/user");
 
 const reviewController = {
-    ReviewBefore: async (req, res) => {
+    Login: async (req, res) => {
+        const {id,pw} = req.body;
         try {
-            const result = await review.reviewBefore();
+            const result = await review.login(id, pw);
             res.json(result);
         } catch (err) {
-            console.log("post: 게시글 목록 조회 컨트롤러 오류")
+            console.log("user: 로그인 컨트롤 오류")
             res.json({ "result": "error" });
         }
-    },
+    }
 };
 module.exports = reviewController;

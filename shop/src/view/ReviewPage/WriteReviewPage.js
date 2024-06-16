@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ReviewPage/Review.css';
+import './Review.css';
 
 function WriteReviewPage() {
   const [photoUrl, setPhotoUrl] = useState('');

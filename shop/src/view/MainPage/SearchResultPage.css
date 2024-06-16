@@ -1,0 +1,58 @@
+.search-result-container {
+  width: 960px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: black;
+  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.result {
+  display: flex;
+  align-items: flex-start; /* 아이템을 위쪽에 정렬 */
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #C7C7C7;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.result:hover {
+  background-color: #f0f0f0;
+}
+
+.image {
+  width: 167px;
+  height: 98px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column; /* 세로 방향으로 정렬 */
+}
+
+.type, .address, .price {
+  color: #646464;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 2px 0;
+}
+
+.name {
+  color: black;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin: 5px 0;
+}

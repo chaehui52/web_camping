@@ -11,7 +11,7 @@ const review = {
         } catch (err) {
             console.log("post: 전체 조회 모델 오류 발생");
         }
-    },
+    }
 }
 
 module.exports = review;
