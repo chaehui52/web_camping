@@ -1,3 +1,4 @@
+
 function MyPageBefor() {
   return (
     <div style={{width: 960, height: 540, position: 'relative', background: 'white'}}>
