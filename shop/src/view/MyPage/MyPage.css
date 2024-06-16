@@ -1,0 +1,109 @@
+.container {
+  width: 960px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: black;
+  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.user-name, .reservation-status {
+  color: black;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.filters {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.filter {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter.active {
+  background-color:#E3EDD6;
+}
+
+.reservation-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #C7C7C7;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.upcoming {
+  background-color: #e0f7fa;
+}
+
+.used {
+  background-color: #c8e6c9;
+}
+
+.cancelled {
+  background-color: #ffcdd2;
+}
+
+.camping-image {
+  width: 167px;
+  height: 98px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.reservation-info {
+  flex-grow: 1;
+}
+
+.pension-info, .address, .check-in, .check-out, .person-count {
+  color: #646464;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 2px 0;
+}
+
+.camping-name {
+  color: black;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.reservation-status {
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.cancel-button {
+  background-color: #ff1744;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #d50000;
+}

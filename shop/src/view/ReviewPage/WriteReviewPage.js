@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ReviewPage/Review.css';
+import './Review.css';
 
 function WriteReviewPage() {
   const [photoUrl, setPhotoUrl] = useState('');
@@ -24,7 +24,7 @@ function WriteReviewPage() {
         <div className="buttonText">등록</div>
       </div>
       <div className="button cancelButton">
-        <div className="buttonText">취소</div>
+        <div className="buttonText2">취소</div>
       </div>
       <div className="rectangle56" onClick={() => document.getElementById('photoInput').click()}>
         {photoUrl ? (
