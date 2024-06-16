@@ -3,56 +3,126 @@ import './RegisterCampingPage.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function RegisterCampingPage() {
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
+function RegisterCampingPage({ onAddCamping }) {
+  const [name, setName] = useState('');
+  const [city, setCity] = useState('');
+  const [town, setTown] = useState('');
+  const [detailAddress, setDetailAddress] = useState('');
+  const [number, setNumber] = useState('');
+  const [mannertimestart, setMannerTimeStart] = useState(null);
+  const [mannertimeend, setMannerTimeEnd] = useState(null);
+  const [facilities, setFacilities] = useState([]);
+  const [playings, setPlayings] = useState([]);
+  const [surroundings, setSurroundings] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newCamping = {
+      name,
+      city,
+      town,
+      detailAddress,
+      number,
+      mannertimestart: mannertimestart ? mannertimestart.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
+      mannertimeend: mannertimeend ? mannertimeend.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
+      facilities: facilities.join(', '),
+      playings: playings.join(', '),
+      surroundings: surroundings.join(', ')
+    };
+
+    onAddCamping(newCamping);
+
+    // Reset the form
+    setName('');
+    setCity('');
+    setTown('');
+    setDetailAddress('');
+    setNumber('');
+    setMannerTimeStart(null);
+    setMannerTimeEnd(null);
+    setFacilities([]);
+    setPlayings([]);
+    setSurroundings([]);
+  };
+
+  const handleCheckboxChange = (setter) => (event) => {
+    const value = event.target.value;
+    setter((prev) =>
+      prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
+    );
+  };
 
   return (
     <div className="container">
       <h1>캠핑장 등록</h1>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>캠핑장 이름</label>
-        <input className='camping-name-input' type='text' placeholder='' />
+        <input
+          className="camping-name-input"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <label>캠핑장 주소</label>
         <div className="address-container">
-          <select className='address-input'>
+          <select
+            className="address-input"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          >
             <option value="">시/도</option>
-            <option value="seoul">서울특별시</option>
-            <option value="busan">부산광역시</option>
-            <option value="daegu">대구광역시</option>
-            <option value="incheon">인천광역시</option>
-            <option value="gwangju">광주광역시</option>
-            <option value="daejeon">대전광역시</option>
-            <option value="ulsan">울산광역시</option>
-            <option value="sejong">세종특별자치시</option>
-            <option value="gyeonggi">경기도</option>
-            <option value="gangwon">강원도</option>
-            <option value="chungbuk">충청북도</option>
-            <option value="chungnam">충청남도</option>
-            <option value="jeonbuk">전라북도</option>
-            <option value="jeonnam">전라남도</option>
-            <option value="gyeongbuk">경상북도</option>
-            <option value="gyeongnam">경상남도</option>
-            <option value="jeju">제주특별자치도</option>
+            <option value="서울특별시">서울특별시</option>
+            <option value="부산광역시">부산광역시</option>
+            <option value="대구광역시">대구광역시</option>
+            <option value="인천광역시">인천광역시</option>
+            <option value="광주광역시">광주광역시</option>
+            <option value="대전광역시">대전광역시</option>
+            <option value="울산광역시">울산광역시</option>
+            <option value="세종특별자치시">세종특별자치시</option>
+            <option value="경기도">경기도</option>
+            <option value="강원도">강원도</option>
+            <option value="충청북도">충청북도</option>
+            <option value="충청남도">충청남도</option>
+            <option value="전라북도">전라북도</option>
+            <option value="전라남도">전라남도</option>
+            <option value="경상북도">경상북도</option>
+            <option value="경상남도">경상남도</option>
+            <option value="제주특별자치도">제주특별자치도</option>
           </select>
-          <select className='address-input'>
+          <select
+            className="address-input"
+            value={town}
+            onChange={(e) => setTown(e.target.value)}
+          >
             <option value="">시/군/구</option>
-            <option value="district1">구/군 1</option>
-            <option value="district2">구/군 2</option>
+            <option value="구/군 1">구/군 1</option>
+            <option value="구/군 2">구/군 2</option>
           </select>
-          <input className='address-input' type='text' placeholder='상세 주소' />
+          <input
+            className="address-input"
+            type="text"
+            value={detailAddress}
+            onChange={(e) => setDetailAddress(e.target.value)}
+            placeholder="상세 주소"
+          />
         </div>
 
         <label>캠핑장 전화번호</label>
-        <input className='camping-phone-input' type='tel' placeholder='' />
+        <input
+          className="camping-phone-input"
+          type="tel"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
 
         <label>매너 타임</label>
         <div className="manner-time-container">
           <DatePicker
-            selected={startTime}
-            onChange={(time) => setStartTime(time)}
+            selected={mannertimestart}
+            onChange={(time) => setMannerTimeStart(time)}
             showTimeSelect
             showTimeSelectOnly
             timeIntervals={10}
@@ -63,8 +133,8 @@ function RegisterCampingPage() {
           />
           <span> ~ </span>
           <DatePicker
-            selected={endTime}
-            onChange={(time) => setEndTime(time)}
+            selected={mannertimeend}
+            onChange={(time) => setMannerTimeEnd(time)}
             showTimeSelect
             showTimeSelectOnly
             timeIntervals={10}
@@ -80,68 +150,131 @@ function RegisterCampingPage() {
           <label>부대시설</label>
           <div className="checkbox-group">
             <div className="checkbox-container">
-              <input type='checkbox' value='camping' />
+              <input
+                type="checkbox"
+                value="캠핑장"
+                checked={facilities.includes('캠핑장')}
+                onChange={handleCheckboxChange(setFacilities)}
+              />
               <label>캠핑장</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='glamping' />
+              <input
+                type="checkbox"
+                value="글램핑"
+                checked={facilities.includes('글램핑')}
+                onChange={handleCheckboxChange(setFacilities)}
+              />
               <label>글램핑</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='caravan' />
+              <input
+                type="checkbox"
+                value="카라반"
+                checked={facilities.includes('카라반')}
+                onChange={handleCheckboxChange(setFacilities)}
+              />
               <label>카라반</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='pension' />
+              <input
+                type="checkbox"
+                value="펜션"
+                checked={facilities.includes('펜션')}
+                onChange={handleCheckboxChange(setFacilities)}
+              />
               <label>펜션</label>
             </div>
           </div>
         </div>
 
         <div className="playing">
+          <label>놀거리</label>
           <div className="checkbox-group">
-          <label>놀거리</label> 
             <div className="checkbox-container">
-              <input type='checkbox' value='fishing' />
+              <input
+                type="checkbox"
+                value="낚시"
+                checked={playings.includes('낚시')}
+                onChange={handleCheckboxChange(setPlayings)}
+              />
               <label>낚시</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='experience-center' />
+              <input
+                type="checkbox"
+                value="체험장"
+                checked={playings.includes('체험장')}
+                onChange={handleCheckboxChange(setPlayings)}
+              />
               <label>체험장</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='pool' />
+              <input
+                type="checkbox"
+                value="수영장"
+                checked={playings.includes('수영장')}
+                onChange={handleCheckboxChange(setPlayings)}
+              />
               <label>수영장</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='bbq' />
+              <input
+                type="checkbox"
+                value="바베큐"
+                checked={playings.includes('바베큐')}
+                onChange={handleCheckboxChange(setPlayings)}
+              />
               <label>바베큐</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='camp-fire' />
+              <input
+                type="checkbox"
+                value="캠프파이어"
+                checked={playings.includes('캠프파이어')}
+                onChange={handleCheckboxChange(setPlayings)}
+              />
               <label>캠프파이어</label>
             </div>
           </div>
         </div>
 
         <div className="environment">
+          <label>주변 환경</label>
           <div className="checkbox-group">
-          <label>주변 환경</label> 
             <div className="checkbox-container">
-              <input type='checkbox' value='mountain' />
+              <input
+                type="checkbox"
+                value="산/숲"
+                checked={surroundings.includes('산/숲')}
+                onChange={handleCheckboxChange(setSurroundings)}
+              />
               <label>산/숲</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='beach' />
+              <input
+                type="checkbox"
+                value="바다"
+                checked={surroundings.includes('바다')}
+                onChange={handleCheckboxChange(setSurroundings)}
+              />
               <label>바다</label>
             </div>
             <div className="checkbox-container">
-              <input type='checkbox' value='river' />
+              <input
+                type="checkbox"
+                value="강"
+                checked={surroundings.includes('강')}
+                onChange={handleCheckboxChange(setSurroundings)}
+              />
               <label>강</label>
             </div>
           </div>
         </div>
-        <button className='next-btn' type='submit'>다음</button>
+
+        <button className="next-btn" type="submit">
+          다음
+        </button>
       </form>
     </div>
   );
