@@ -2,18 +2,29 @@ import React, { useState } from 'react';
 import './MainPage.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios'; // Axios 라이브러리 추가
+
+// Axios 인스턴스 생성
+const api = axios.create({
+  baseURL: 'http://localhost:4000', // baseURL 설정
+  timeout: 10000, // 요청 타임아웃 설정 (옵션)
+  headers: {
+    'Content-Type': 'application/json',
+    // 기타 필요한 헤더 설정
+  }
+});
 
 function MainPage() {
   const [selectedSido, setSelectedSido] = useState('');
   const [selectedSigungu, setSelectedSigungu] = useState('');
-  const [checkInTime1, setCheckInTime1] = useState(null); // 첫 번째 입실 시간 상태
-  const [checkInTime2, setCheckInTime2] = useState(null); // 두 번째 입실 시간 상태
-  const [campName, setCampName] = useState(''); // 캠핑장 이름 상태
-  const [facilities, setFacilities] = useState([]); // 선택된 부대 시설 상태
+  const [checkInTime1, setCheckInTime1] = useState(null);
+  const [checkInTime2, setCheckInTime2] = useState(null);
+  const [campName, setCampName] = useState('');
+  const [facilities, setFacilities] = useState([]);
 
   const handleSidoChange = (e) => {
     setSelectedSido(e.target.value);
-    setSelectedSigungu(''); // 시/도가 변경될 때 시/군/구 초기화
+    setSelectedSigungu('');
   };
 
   const handleSigunguChange = (e) => {
@@ -23,7 +34,7 @@ function MainPage() {
   const handleCheckInTime1Change = (time) => {
     setCheckInTime1(time);
     if (checkInTime2 && time > checkInTime2) {
-      setCheckInTime2(null); // 첫 번째 시간이 두 번째 시간보다 이후일 경우 두 번째 시간 초기화
+      setCheckInTime2(null);
     }
   };
 
@@ -35,7 +46,7 @@ function MainPage() {
     if (!checkInTime1) {
       return null;
     }
-    return new Date(checkInTime1.getTime() + 60000); // 첫 번째 선택 시간 이후로 설정
+    return new Date(checkInTime1.getTime() + 60000);
   };
 
   const handleFacilityChange = (e) => {
@@ -50,7 +61,6 @@ function MainPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 예를 들어, 여기서 서버로 데이터를 전송할 수 있습니다.
     const formData = {
       campName,
       facilities,
@@ -60,26 +70,15 @@ function MainPage() {
       checkInTime2
     };
 
-    console.log('전송할 데이터:', formData);
-
-    // 실제로는 여기서 서버로 데이터를 전송하는 로직을 추가해야 합니다.
-    // 예를 들어, fetch API를 사용하여 POST 요청을 보낼 수 있습니다.
-    // fetch('/api/submit-data', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(formData)
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //   console.log('서버 응답:', data);
-    // })
-    // .catch(error => {
-    //   console.error('서버 요청 실패:', error);
-    // });
-
-    // 추가적인 검색 로직 구현
+    api.get('/camp/search', formData.campName)
+      .then(response => {
+        console.log('서버 응답:', response.data);
+        // 서버 응답에 따라 추가적인 로직을 처리할 수 있습니다.
+      })
+      .catch(error => {
+        console.error('서버 요청 실패:', error);
+        // 에러 처리 로직을 추가할 수 있습니다.
+      });
   };
 
   return (
@@ -154,7 +153,7 @@ function MainPage() {
             timeIntervals={10}
             timeCaption="입실 시간 2"
             minTime={calculateMinTimeForCheckInTime2()}
-            maxTime={checkInTime1 ? new Date(checkInTime1.getTime() + 86400000) : null} // 첫 번째 선택 시간 이후 24시간 내로 설정
+            maxTime={checkInTime1 ? new Date(checkInTime1.getTime() + 86400000) : null}
             dateFormat="h:mm aa"
             className="datePickerInput"
           />
