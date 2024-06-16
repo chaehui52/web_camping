@@ -1,4 +1,4 @@
-const review = require("../model/review");
+const review = require("../model/user");
 
 const reviewController = {
     ReviewBefore: async (req, res) => {
