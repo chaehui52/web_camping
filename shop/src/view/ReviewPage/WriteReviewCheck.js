@@ -8,9 +8,10 @@ function WriteReviewCheck({ reviews }) {
       {reviews.map((review, index) => (
         <div key={index} className="reviewContainer">
           <img className="reviewImage" src={review.imgSrc} alt={`Review ${index}`} />
+          <div className="title">{review.title}</div>
           <div className="userName">User{index + 1}</div>
           <div className="comment">{review.content}</div>
-          <div className="reviewTitle">{review.title}</div>
+          
           {/* 필요한 추가 필드가 있다면 여기에 추가하세요 */}
         </div>
       ))}
