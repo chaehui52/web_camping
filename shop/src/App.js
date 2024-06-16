@@ -80,15 +80,38 @@ const results = [
   }
 ];
 
+
+const reviews = [
+  {
+    imgSrc: '/path/to/image1.jpg',
+    title: '제목제목',
+    content: '내용내용',
+    id: 'abdsrsscd'  // 예시 리뷰 ID
+  },
+  {
+    imgSrc: '/path/to/image2.jpg',
+    title: '제목제목제목',
+    content: '내용내용내용',
+    id: 'anotherID'  // 예시 리뷰 ID
+  },
+  {
+    imgSrc: '/path/to/image3.jpg',
+    title: '제목제목제목제목',
+    content: '내용내용내용내용',
+    id: 'thirdID'  // 예시 리뷰 ID
+  }
+  // 추가 리뷰를 여기에 추가하세요
+];
+
 function App() {
   //return <LoginPage/>
-  return <MainPage/>
+  //return <MainPage/>
   //return <SearchResultPage results={results} />
   //return <DetailInformationPage/>
   //return <RegisterSitePage/>
   //return <WriteReviewPage/>
   //return <RegisterCampingPage/>
-  //return <MyPage ClientID={ClientID} reservations={reservations} />
+  return <WriteReviewCheck reviews={reviews} />
 }
 
 export default App;
