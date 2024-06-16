@@ -82,9 +82,9 @@ const results = [
 
 function App() {
   //return <LoginPage/>
-  return <MainPage/>
+  //return <MainPage/>
   //return <SearchResultPage results={results} />
-  //return <DetailInformationPage/>
+  return <DetailInformationPage/>
   //return <RegisterSitePage/>
   //return <WriteReviewPage/>
   //return <RegisterCampingPage/>
