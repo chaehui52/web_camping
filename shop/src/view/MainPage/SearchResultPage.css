@@ -1,0 +1,249 @@
+/* ResultPage.css */
+
+.search-result-container {
+    width: 960px;
+    height: 540px;
+    position: relative;
+    background: white;
+  }
+  
+  .title {
+    left: 30px;
+    top: 31px;
+    position: absolute;
+    color: black;
+    font-size: 30px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .image-1 {
+    width: 168px;
+    height: 98px;
+    left: 146px;
+    top: 123px;
+    position: absolute;
+  }
+  
+  .image-2 {
+    width: 167.22px;
+    height: 98px;
+    left: 146px;
+    top: 253px;
+    position: absolute;
+  }
+  
+  .type-1 {
+    left: 337px;
+    top: 123px;
+    position: absolute;
+    color: #646464;
+    font-size: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .address-1 {
+    left: 337px;
+    top: 166px;
+    position: absolute;
+    color: #646464;
+    font-size: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .address-2 {
+    width: 119px;
+    height: 11px;
+    left: 337px;
+    top: 300px;
+    position: absolute;
+    color: #646464;
+    font-size: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .type-2 {
+    left: 337px;
+    top: 253px;
+    position: absolute;
+    color: #646464;
+    font-size: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .name-1 {
+    left: 337px;
+    top: 278px;
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .name-2 {
+    left: 337px;
+    top: 144px;
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .price-1 {
+    left: 337px;
+    top: 315px;
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .address-3 {
+    width: 119px;
+    height: 11px;
+    left: 333px;
+    top: 429px;
+    position: absolute;
+    color: #646464;
+    font-size: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .type-3 {
+    left: 333px;
+    top: 382px;
+    position: absolute;
+    color: #646464;
+    font-size: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .name-3 {
+    left: 333px;
+    top: 407px;
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .price-2 {
+    left: 333px;
+    top: 449px;
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .image-3 {
+    width: 164.95px;
+    height: 98px;
+    left: 149px;
+    top: 382px;
+    position: absolute;
+  }
+  
+  .line-1 {
+    width: 634px;
+    height: 0;
+    left: 137px;
+    top: 237px;
+    position: absolute;
+    border: 1px #C7C7C7 solid;
+  }
+  
+  .line-2 {
+    width: 634px;
+    height: 0;
+    left: 139px;
+    top: 370px;
+    position: absolute;
+    border: 1px #C7C7C7 solid;
+  }
+  
+  .search-category {
+    left: 172px;
+    top: 47px;
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .search-item {
+    left: 243px;
+    top: 35px;
+    position: absolute;
+    color: black;
+    font-size: 10px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .search-bar-1 {
+    width: 90px;
+    height: 12px;
+    left: 243px;
+    top: 50px;
+    position: absolute;
+    background: #D9D9D9;
+    border-radius: 10px;
+  }
+  
+  .search-bar-2 {
+    width: 90px;
+    height: 12px;
+    left: 356px;
+    top: 48px;
+    position: absolute;
+    background: #D9D9D9;
+    border-radius: 10px;
+  }
+  
+  .search-bar-3 {
+    width: 90px;
+    height: 12px;
+    left: 465px;
+    top: 48px;
+    position: absolute;
+    background: #D9D9D9;
+    border-radius: 10px;
+  }
+  
+  .search-bar-4 {
+    width: 90px;
+    height: 12px;
+    left: 567px;
+    top: 46px;
+    position: absolute;
+    background: #D9D9D9;
+    border-radius: 10px;
+  }
+  

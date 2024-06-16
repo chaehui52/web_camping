@@ -1,5 +1,4 @@
-import logo from './logo.svg'; // 로고 이미지 가져오기
-import './App.css'; // App 컴포넌트의 CSS 스타일 import
+
 
 function MyPageAfter({
   ClientID,
