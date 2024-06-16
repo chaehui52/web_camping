@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 function MyPageBefor() {
   return (
     <div style={{width: 960, height: 540, position: 'relative', background: 'white'}}>

@@ -1,11 +1,11 @@
-const mysql = require('mysql2/promise');
+const mysql = require('./src/server');
 
 const pool = mysql.createPool({
     host: 'db.meowning.kr',
     port: 3306,
-    user: 'dalibike',
-    password: 'dalibike',
-    database: 'DALI_BIKE',
+    user: 'camping',
+    password: 'camping',
+    database: 'WEB_CAMPING',
     connectionLimit: 10,
     multipleStatements: true,
     timezone: '+09:00'

@@ -1,23 +1,14 @@
-import logo from './logo.svg'
 import './App.css';
-import MainPage from './MainPage';
-import DetailImformationPage from './DetailImformationPage';
-import LoginPage from './LoginPage';
+import MainPage from './view/MainPage/MainPage';
+import Test from './view/Test';
 import MyPageAfter from './MyPageAfter';
-// import MyPageBefor from './MyPagebefor';
-import MyPageCancle from './MyPageCancle';
-import RegisterCampingPage from './RegisterCampingPage';
-import RegisterSitePage from './RegisterSitePage';
-import ReservationPage from './ReservationPage';
-import ReservationSuccessPage from './ReservationSuccessPage';
-import SearchResultPage from './SearchResultPage';
-import WriteReviewPage from './WriteReviewPage';
-import WriteReviewCheck from './WriteReviewCheck';
+
 
 function App() {
-  return (
-   <MyPageAfter/>
-  );
+  //return <LoginPage/>
+  //return <MainPage/>
+  //return <SearchResultPage/>
+  return <MyPageAfter/>
 }
 
 export default App;

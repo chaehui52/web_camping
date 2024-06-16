@@ -1,6 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
-function DetailImformationPage() {
+
+function DetailInformationPage() {
   return (
     <div style={{width: 960, height: 2629, position: 'relative', background: 'white'}}>
   <div className="Rectangle42" style={{width: 420, height: 83, left: 469, top: 245, position: 'absolute', background: '#ECECEC', borderRadius: 13}} />
@@ -131,4 +130,4 @@ function DetailImformationPage() {
   );
 }
 
-export default DetailImformationPage;
+export default DetailInformationPage;
