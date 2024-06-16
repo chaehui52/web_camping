@@ -1,8 +1,9 @@
-import React from 'react';
-import MyTimePicker from './DatePicker';
+import React, { useState } from 'react';
 import './MainPage.css';
+import DatePicker from 'react-datepicker';
 
 function MainPage() {
+  const [checkInTime, setCheckInTime] = useState(null);
   return (
     <div className="container">
       <h1>메인페이지</h1>
@@ -26,7 +27,16 @@ function MainPage() {
         </div>
         <div className="checkin-time">
           <label>입실 시간</label>
-          <MyTimePicker/>
+          <DatePicker
+          selected={checkInTime}
+          onChange={(time) => setCheckInTime(time)}
+          showTimeSelect
+          showTimeSelectOnly
+          timeIntervals={10}
+          timeCaption="입실 시간"
+          dateFormat="h:mm aa"
+          className="datePickerInput"
+        />
         </div>
         <p className="facilities">부대 시설</p>
         <div className="facility-type">

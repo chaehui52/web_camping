@@ -1,71 +1,149 @@
+import React, { useState } from 'react';
+import './RegisterCampingPage.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function RegisterCampingPage() {
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+
   return (
-    <div style={{width: 960, height: 540, position: 'relative', background: 'white'}}>
-  <div style={{left: 30, top: 31, position: 'absolute', color: 'black', fontSize: 30, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>캠핑장 등록</div>
-  <div style={{left: 47, top: 108, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>캠핑장 이름</div>
-  <div className="Rectangle13" style={{width: 155, height: 19, left: 135, top: 108, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 47, top: 192, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>캠핑장 전화번호</div>
-  <div className="Rectangle29" style={{width: 155, height: 19, left: 161, top: 192, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 47, top: 234, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>매너 타임</div>
-  <div style={{left: 255, top: 233, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>~</div>
-  <div className="Rectangle30" style={{width: 120, height: 19, left: 126, top: 233, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div className="Rectangle31" style={{width: 120, height: 19, left: 275, top: 233, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 47, top: 274, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>시설 정보</div>
-  <div style={{left: 190, top: 309, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>캠핑장</div>
-  <div className="Rectangle17" style={{width: 16, height: 15, left: 161, top: 309, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 281, top: 309, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>글램핑</div>
-  <div className="Rectangle18" style={{width: 16, height: 15, left: 252, top: 309, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 372, top: 309, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>카라반</div>
-  <div className="Rectangle19" style={{width: 16, height: 15, left: 343, top: 309, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 463, top: 309, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>펜션</div>
-  <div className="Rectangle20" style={{width: 16, height: 15, left: 434, top: 309, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 47, top: 150, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>캠핑장 주소</div>
-  <div className="Rectangle14" style={{width: 140, height: 18, left: 135, top: 150, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div className="Rectangle15" style={{width: 140, height: 18, left: 297, top: 150, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div className="Rectangle16" style={{width: 140, height: 18, left: 459, top: 150, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div className="Button" style={{width: 110, height: 32, paddingLeft: 24, paddingRight: 24, paddingTop: 14, paddingBottom: 14, left: 425, top: 458, position: 'absolute', background: 'black', boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)', borderRadius: 8, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
-    <div style={{color: 'white', fontSize: 16, fontFamily: 'Inter', fontWeight: '500', lineHeight: 24, wordWrap: 'break-word'}}>다음</div>
-  </div>
-  <div className="Button" style={{width: 80, height: 22, paddingLeft: 24, paddingRight: 24, paddingTop: 14, paddingBottom: 14, left: 67, top: 306, position: 'absolute', background: '#666666', boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)', borderRadius: 8, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
-    <div style={{color: 'white', fontSize: 13, fontFamily: 'Inter', fontWeight: '700', lineHeight: 19.50, wordWrap: 'break-word'}}>부대시설</div>
-  </div>
-  <div style={{left: 190, top: 345, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>낚시</div>
-  <div className="Rectangle21" style={{width: 16, height: 15, left: 161, top: 345, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 281, top: 345, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>체험장</div>
-  <div className="Rectangle22" style={{width: 16, height: 15, left: 252, top: 345, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 372, top: 345, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>수영장</div>
-  <div className="Rectangle23" style={{width: 16, height: 15, left: 343, top: 345, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 463, top: 345, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>바베큐</div>
-  <div className="Rectangle24" style={{width: 16, height: 15, left: 434, top: 345, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 554, top: 346, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>캠프파이어</div>
-  <div className="Rectangle28" style={{width: 16, height: 15, left: 525, top: 346, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div className="Button" style={{width: 80, height: 22, paddingLeft: 24, paddingRight: 24, paddingTop: 14, paddingBottom: 14, left: 67, top: 342, position: 'absolute', background: '#666666', boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)', borderRadius: 8, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
-    <div style={{color: 'white', fontSize: 13, fontFamily: 'Inter', fontWeight: '700', lineHeight: 19.50, wordWrap: 'break-word'}}>놀거리</div>
-  </div>
-  <div style={{left: 190, top: 382, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>산/숲</div>
-  <div className="Rectangle25" style={{width: 16, height: 15, left: 161, top: 382, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 281, top: 382, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>바다</div>
-  <div className="Rectangle26" style={{width: 16, height: 15, left: 252, top: 382, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div style={{left: 372, top: 382, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>강</div>
-  <div className="Rectangle27" style={{width: 16, height: 15, left: 343, top: 382, position: 'absolute', background: 'white', border: '1px black solid'}} />
-  <div className="Button" style={{width: 80, height: 22, paddingLeft: 24, paddingRight: 24, paddingTop: 14, paddingBottom: 14, left: 67, top: 379, position: 'absolute', background: '#666666', boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)', borderRadius: 8, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
-    <div style={{color: 'white', fontSize: 13, fontFamily: 'Inter', fontWeight: '700', lineHeight: 19.50, wordWrap: 'break-word'}}>주변 환경</div>
-  </div>
-  <div style={{width: 960, height: 540, left: -328, top: 796, position: 'absolute', background: 'white'}}>
-    <div style={{left: 30, top: 31, position: 'absolute', color: 'black', fontSize: 30, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>로그인</div>
-    <div style={{left: 273, top: 235, position: 'absolute', color: 'black', fontSize: 12, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>아이디</div>
-    <div style={{left: 267, top: 289, position: 'absolute', color: 'black', fontSize: 12, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>비밀번호</div>
-    <div className="Rectangle1" style={{width: 209, height: 27, left: 332, top: 283, position: 'absolute', background: 'white', border: '1px black solid'}} />
-    <div className="Rectangle13" style={{width: 209, height: 27, left: 332, top: 229, position: 'absolute', background: 'white', border: '1px black solid'}} />
-    <div className="Button" style={{width: 110, height: 32, paddingLeft: 24, paddingRight: 24, paddingTop: 14, paddingBottom: 14, left: 577, top: 250, position: 'absolute', background: 'black', boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)', borderRadius: 8, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
-      <div style={{color: 'white', fontSize: 16, fontFamily: 'Inter', fontWeight: '500', lineHeight: 24, wordWrap: 'break-word'}}>로그인</div>
+    <div className="container">
+      <h1>캠핑장 등록</h1>
+
+      <form>
+        <label>캠핑장 이름</label>
+        <input className='camping-name-input' type='text' placeholder='' />
+
+        <label>캠핑장 주소</label>
+        <div className="address-container">
+          <select className='address-input'>
+            <option value="">시/도</option>
+            <option value="seoul">서울특별시</option>
+            <option value="busan">부산광역시</option>
+            <option value="daegu">대구광역시</option>
+            <option value="incheon">인천광역시</option>
+            <option value="gwangju">광주광역시</option>
+            <option value="daejeon">대전광역시</option>
+            <option value="ulsan">울산광역시</option>
+            <option value="sejong">세종특별자치시</option>
+            <option value="gyeonggi">경기도</option>
+            <option value="gangwon">강원도</option>
+            <option value="chungbuk">충청북도</option>
+            <option value="chungnam">충청남도</option>
+            <option value="jeonbuk">전라북도</option>
+            <option value="jeonnam">전라남도</option>
+            <option value="gyeongbuk">경상북도</option>
+            <option value="gyeongnam">경상남도</option>
+            <option value="jeju">제주특별자치도</option>
+          </select>
+          <select className='address-input'>
+            <option value="">시/군/구</option>
+            <option value="district1">구/군 1</option>
+            <option value="district2">구/군 2</option>
+          </select>
+          <input className='address-input' type='text' placeholder='상세 주소' />
+        </div>
+
+        <label>캠핑장 전화번호</label>
+        <input className='camping-phone-input' type='tel' placeholder='' />
+
+        <label>매너 타임</label>
+        <div className="manner-time-container">
+          <DatePicker
+            selected={startTime}
+            onChange={(time) => setStartTime(time)}
+            showTimeSelect
+            showTimeSelectOnly
+            timeIntervals={10}
+            timeCaption="시작 시간"
+            dateFormat="h:mm aa"
+            className="datePickerInput"
+            placeholderText="시작 시간"
+          />
+          <span> ~ </span>
+          <DatePicker
+            selected={endTime}
+            onChange={(time) => setEndTime(time)}
+            showTimeSelect
+            showTimeSelectOnly
+            timeIntervals={10}
+            timeCaption="종료 시간"
+            dateFormat="h:mm aa"
+            className="datePickerInput"
+            placeholderText="종료 시간"
+          />
+        </div>
+
+        <label>시설 정보</label>
+        <div className="facility-info">
+          <label>부대시설</label>
+          <div className="checkbox-group">
+            <div className="checkbox-container">
+              <input type='checkbox' value='camping' />
+              <label>캠핑장</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='glamping' />
+              <label>글램핑</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='caravan' />
+              <label>카라반</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='pension' />
+              <label>펜션</label>
+            </div>
+          </div>
+        </div>
+
+        <div className="playing">
+          <div className="checkbox-group">
+          <label>놀거리</label> 
+            <div className="checkbox-container">
+              <input type='checkbox' value='fishing' />
+              <label>낚시</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='experience-center' />
+              <label>체험장</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='pool' />
+              <label>수영장</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='bbq' />
+              <label>바베큐</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='camp-fire' />
+              <label>캠프파이어</label>
+            </div>
+          </div>
+        </div>
+
+        <div className="environment">
+          <div className="checkbox-group">
+          <label>주변 환경</label> 
+            <div className="checkbox-container">
+              <input type='checkbox' value='mountain' />
+              <label>산/숲</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='beach' />
+              <label>바다</label>
+            </div>
+            <div className="checkbox-container">
+              <input type='checkbox' value='river' />
+              <label>강</label>
+            </div>
+          </div>
+        </div>
+        <button className='next-btn' type='submit'>다음</button>
+      </form>
     </div>
-  </div>
-  <div style={{left: 144, top: 150, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>시/도</div>
-  <div style={{left: 306, top: 150, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>시/군/구</div>
-  <div style={{left: 468, top: 150, position: 'absolute', color: 'black', fontSize: 15, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>상세 주소</div>
-</div>
   );
 }
 
