@@ -4,7 +4,7 @@ import '.ReviewPage//Review.css';
 function WriteReviewCheck() {
   return (
     <div className="container">
-      <div className="title">리뷰 확인</div>
+      <h1>리뷰 확인</h1>
       <img className="Rectangle18" src="https://via.placeholder.com/168x98" />
       <img className="Image2" src="https://via.placeholder.com/167x98" />
       <div className="User1">user1</div>

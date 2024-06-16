@@ -4,18 +4,7 @@
     position: relative;
     background: white;
   }
-  
-  .title {
-    left: 30px;
-    top: 31px;
-    position: absolute;
-    color: black;
-    font-size: 30px;
-    font-family: 'Inter';
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
+
   .Rectangle18 {
     width: 168px;
     height: 98px;
@@ -168,17 +157,6 @@
     background: white;
   }
   
-  .writeReviewTitle {
-    left: 30px;
-    top: 31px;
-    position: absolute;
-    color: black;
-    font-size: 30px;
-    font-family: 'Inter';
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
   .button {
     width: 110px;
     height: 32px;
@@ -202,7 +180,7 @@
   }
   
   .cancelButton {
-    left: 668px;
+    left: 638px;
     top: 462px;
     background: #E6E6E6;
   }
@@ -217,15 +195,43 @@
   }
   
   .rectangle56 {
-    width: 877px;
-    height: 51px;
+    width: 240px;
+    height: 128px; /* Increased height to accommodate potential image height */
     left: 30px;
-    top: 262px;
+    top: 100px;
     position: absolute;
+    background: #D9D9D9;
     border-radius: 10px;
-    border: 1px #B1B1B1 solid;
     display: flex;
+    justify-content: center;
     align-items: center;
+    cursor: pointer; /* Added cursor pointer for user interaction */
+    overflow: hidden; /* Hide overflow to prevent image stretching */
+    border: 1px #B1B1B1 solid;
+  }
+  
+  .rectangle56 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+  
+  .addPhotoText {
+    position: absolute;
+    color: black;
+    font-size: 17px;
+    font-family: 'Inter';
+    font-weight: 400;
+    word-wrap: break-word;
+    z-index: 1; /* Ensure text is above input */
+  }
+  
+  .photoInput {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer; /* Ensure cursor changes when hovering over rectangle */
   }
   
   .rectangle57 {
@@ -236,8 +242,16 @@
     position: absolute;
     border-radius: 10px;
     border: 1px #B1B1B1 solid;
-    display: flex;
-    align-items: center;
+  }
+  
+  .rectangle58 {
+    width: 877px;
+    height: 50px;
+    left: 30px;
+    top: 250px;
+    position: absolute;
+    border-radius: 10px;
+    border: 1px #B1B1B1 solid;
   }
   
   .reviewTitleInput {
@@ -247,15 +261,16 @@
     outline: none;
     padding-left: 8px;
     padding-right: 8px;
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Inter';
-    color: #AEAEAE;
+    color: #646464;
     background: none;
   }
   
+  
   .reviewContentInput {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
     border: none;
     outline: none;
     padding: 8px;
@@ -264,25 +279,4 @@
     color: #646464;
     background: none;
     resize: none;
-  }
-  
-  .rectangle58 {
-    width: 221px;
-    height: 129px;
-    left: 30px;
-    top: 100px;
-    position: absolute;
-    background: #D9D9D9;
-    border-radius: 10px;
-  }
-  
-  .addPhotoText {
-    left: 107px;
-    top: 154px;
-    position: absolute;
-    color: black;
-    font-size: 17px;
-    font-family: 'Inter';
-    font-weight: 400;
-    word-wrap: break-word;
   }
