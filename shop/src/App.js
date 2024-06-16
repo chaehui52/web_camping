@@ -23,10 +23,34 @@ const reservations = [
     adultCount: 2,
     childCount: 1,
     status: '이용 전',
-    statusColor: '대기',
-    statusText: '예약 대기',
     imgSrc: '/path/to/image.jpg'
   },
+  {
+    type: '캠핑',
+    campName: '캠프장 B',
+    city: '대구',
+    town: '수성구',
+    detailAddress: "123-5번지",
+    checkIn: '2024-05-05',
+    checkOut: '2024-06-01',
+    adultCount: 1,
+    childCount: 1,
+    status: '이용 후',
+    imgSrc: '/path/to/image.jpg'
+  },
+  {
+    type: '펜션',
+    campName: '펜션A',
+    city: '서울',
+    town: '어딜까',
+    detailAddress: "상세 주소랍니다",
+    checkIn: '2024-04-06',
+    checkOut: '2024-07-09',
+    adultCount: 5,
+    childCount: 1,
+    status: '이용 취소',
+    imgSrc: '/path/to/image.jpg'
+  }
   // 추가 예약 데이터들...
 ];
 
@@ -58,13 +82,13 @@ const results = [
 
 function App() {
   //return <LoginPage/>
-  //return <MainPage/>
+  return <MainPage/>
   //return <SearchResultPage results={results} />
   //return <DetailInformationPage/>
   //return <RegisterSitePage/>
   //return <WriteReviewPage/>
   //return <RegisterCampingPage/>
-  return <MyPage ClientID={ClientID} reservations={reservations} />
+  //return <MyPage ClientID={ClientID} reservations={reservations} />
 }
 
 export default App;
