@@ -3,6 +3,7 @@ import './MainPage.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios'; // Axios 라이브러리 추가
+import { useNavigation } from 'react-router-dom'
 
 // Axios 인스턴스 생성
 const api = axios.create({
@@ -14,6 +15,8 @@ const api = axios.create({
   }
 });
 
+
+// 
 function MainPage() {
   const [selectedSido, setSelectedSido] = useState('');
   const [selectedSigungu, setSelectedSigungu] = useState('');
@@ -60,17 +63,17 @@ function MainPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const formData = {
       campName,
-      facilities,
       selectedSido,
       selectedSigungu,
-      checkInTime1,
-      checkInTime2
+      checkInTime1: checkInTime1 ? checkInTime1.toISOString() : '',
+      checkInTime2: checkInTime2 ? checkInTime2.toISOString() : '',
+      facilities
     };
-
-    api.get('/camp/search', formData.campName)
+  
+    api.post('/camp/search', formData)
       .then(response => {
         console.log('서버 응답:', response.data);
         // 서버 응답에 따라 추가적인 로직을 처리할 수 있습니다.
@@ -80,6 +83,7 @@ function MainPage() {
         // 에러 처리 로직을 추가할 수 있습니다.
       });
   };
+  
 
   return (
     <div className="container">
