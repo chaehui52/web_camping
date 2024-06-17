@@ -43,6 +43,7 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
       groundID,
       resID,
       Title
+      
     };
 
     api.post('/review/write', formData)

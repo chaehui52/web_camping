@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import './RegisterCampingPage.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:4000',
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 function RegisterCampingPage({ onAddCamping }) {
   const [name, setName] = useState('');
@@ -12,8 +21,6 @@ function RegisterCampingPage({ onAddCamping }) {
   const [mannertimestart, setMannerTimeStart] = useState(null);
   const [mannertimeend, setMannerTimeEnd] = useState(null);
   const [facilities, setFacilities] = useState([]);
-  const [playings, setPlayings] = useState([]);
-  const [surroundings, setSurroundings] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,24 +33,26 @@ function RegisterCampingPage({ onAddCamping }) {
       number,
       mannertimestart: mannertimestart ? mannertimestart.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
       mannertimeend: mannertimeend ? mannertimeend.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
-      facilities: facilities.join(', '),
-      playings: playings.join(', '),
-      surroundings: surroundings.join(', ')
+      facilities: facilities.join(', ')
     };
 
-    onAddCamping(newCamping);
-
-    // Reset the form
-    setName('');
-    setCity('');
-    setTown('');
-    setDetailAddress('');
-    setNumber('');
-    setMannerTimeStart(null);
-    setMannerTimeEnd(null);
-    setFacilities([]);
-    setPlayings([]);
-    setSurroundings([]);
+    api.post('/camp/insert', newCamping)
+      .then(response => {
+        console.log(response.data);
+        onAddCamping(newCamping);
+        // Reset the form
+        setName('');
+        setCity('');
+        setTown('');
+        setDetailAddress('');
+        setNumber('');
+        setMannerTimeStart(null);
+        setMannerTimeEnd(null);
+        setFacilities([]);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   const handleCheckboxChange = (setter) => (event) => {
@@ -184,90 +193,6 @@ function RegisterCampingPage({ onAddCamping }) {
                 onChange={handleCheckboxChange(setFacilities)}
               />
               <label>펜션</label>
-            </div>
-          </div>
-        </div>
-
-        <div className="playing">
-          <label>놀거리</label>
-          <div className="checkbox-group">
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="낚시"
-                checked={playings.includes('낚시')}
-                onChange={handleCheckboxChange(setPlayings)}
-              />
-              <label>낚시</label>
-            </div>
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="체험장"
-                checked={playings.includes('체험장')}
-                onChange={handleCheckboxChange(setPlayings)}
-              />
-              <label>체험장</label>
-            </div>
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="수영장"
-                checked={playings.includes('수영장')}
-                onChange={handleCheckboxChange(setPlayings)}
-              />
-              <label>수영장</label>
-            </div>
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="바베큐"
-                checked={playings.includes('바베큐')}
-                onChange={handleCheckboxChange(setPlayings)}
-              />
-              <label>바베큐</label>
-            </div>
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="캠프파이어"
-                checked={playings.includes('캠프파이어')}
-                onChange={handleCheckboxChange(setPlayings)}
-              />
-              <label>캠프파이어</label>
-            </div>
-          </div>
-        </div>
-
-        <div className="environment">
-          <label>주변 환경</label>
-          <div className="checkbox-group">
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="산/숲"
-                checked={surroundings.includes('산/숲')}
-                onChange={handleCheckboxChange(setSurroundings)}
-              />
-              <label>산/숲</label>
-            </div>
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="바다"
-                checked={surroundings.includes('바다')}
-                onChange={handleCheckboxChange(setSurroundings)}
-              />
-              <label>바다</label>
-            </div>
-            <div className="checkbox-container">
-              <input
-                type="checkbox"
-                value="강"
-                checked={surroundings.includes('강')}
-                onChange={handleCheckboxChange(setSurroundings)}
-              />
-              <label>강</label>
             </div>
           </div>
         </div>

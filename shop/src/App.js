@@ -31,29 +31,7 @@ const reservations = [
 
 const ClientID = 'user123'; // 임시 클라이언트 ID
 
-const results = [
-  {
-    imgSrc: "path/to/image1.jpg",
-    type: "펜션",
-    name: "하이원리조트 마운틴콘도",
-    address: "강원도 정선군 뭐시기 저시기 풀 주소",
-    price: "100,300원"
-  },
-  {
-    imgSrc: "path/to/image2.jpg",
-    type: "리조트 / 호텔",
-    name: "하이원리조트 힐콘도",
-    address: "강원도 정선군 뭐시기 저시기",
-    price: "150,000원"
-  },
-  {
-    imgSrc: "path/to/image3.jpg",
-    type: "리조트 / 호텔",
-    name: "하이원 그랜드 호텔",
-    address: "강원도 정선군 뭐시기 저시기",
-    price: "520,000원"
-  }
-];
+
 
 const reviews = [
   {
@@ -98,13 +76,13 @@ function App() {
   };
 
 
-  //return <LoginPage/>
-  return <MainPage/>
+  // return <LoginPage/>
+  //return <MainPage/>
   //return <SearchResultPage results={results} />
-  return <DetailInformationPage/>
+  //return <DetailInformationPage/>
   //return <RegisterSitePage/>
   // return <WriteReviewPage/>
-  //return <RegisterCampingPage/>
+  return <RegisterCampingPage/>
   // return <WriteReviewCheck reviews={reviews} />
 
   return (
@@ -112,10 +90,10 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage/>} />
         <Route path="/main" element={<MainPage/>} />
-        <Route path="/search-results" element={<SearchResultPage searchResults={results} />} />
-        <Route path="/results-details" element={<DetailInformationPage/>}/>
+        <Route path="/search-results" element={<SearchResultPage />} />
+        <Route path="/detail/:groundID" element={<DetailInformationPage/>}/>
         <Route path="/register" element={<RegisterSitePage/>}/>
-        <Route path="register-camping" element={<RegisterCampingPage onAddCamping={handleAddCamping}/>}/>
+        <Route path="/register-camping" element={<RegisterCampingPage onAddCamping={handleAddCamping}/>}/>
       </Routes>
     </Router>
   );
