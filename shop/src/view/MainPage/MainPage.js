@@ -3,7 +3,7 @@ import './MainPage.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios'; // Axios 라이브러리 추가
-import { useNavigation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 // Axios 인스턴스 생성
 const api = axios.create({

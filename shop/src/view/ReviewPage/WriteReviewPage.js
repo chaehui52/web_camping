@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 import './Review.css';
+import axios from 'axios'; // Axios 라이브러리 추가
+
+// Axios 인스턴스 생성
+const api = axios.create({
+  baseURL: 'http://localhost:4000', // baseURL 설정
+  timeout: 10000, // 요청 타임아웃 설정 (옵션)
+  headers: {
+    'Content-Type': 'application/json',
+    // 기타 필요한 헤더 설정
+  }
+});
 
 function WriteReviewPage({ reviews, ClientID, addReview }) {
   const [photoUrl, setPhotoUrl] = useState('');
@@ -19,13 +30,25 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
     }
   };
 
-  const handleSubmit = () => {
-    const newReview = {
-      imgSrc: photoUrl,
-      title: title,
-      content: content
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = {
+      imgSrc:photoUrl,
+      title,
+      content
     };
-    addReview(newReview);
+
+    api.post('/review/write', formData)
+      .then(response => {
+        console.log('서버 응답:', response.data);
+        // 서버 응답에 따라 추가적인 로직을 처리할 수 있습니다.
+        addReview(formData);
+      })
+      .catch(error => {
+        console.error('서버 요청 실패:', error);
+        // 에러 처리 로직을 추가할 수 있습니다.
+      });
   };
 
   return (
