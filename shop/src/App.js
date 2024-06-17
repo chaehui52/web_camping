@@ -103,10 +103,9 @@ function App() {
   //return <SearchResultPage results={results} />
   //return <DetailInformationPage/>
   //return <RegisterSitePage/>
-  //return <WriteReviewPage/>
+  // return <WriteReviewPage/>
   //return <RegisterCampingPage/>
   // return <WriteReviewCheck reviews={reviews} />
-  //return <WriteReviewCheck reviews={reviews} />
 
   return (
     <Router>
