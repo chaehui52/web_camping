@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import './MainPage.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import axios from 'axios'; // Axios 라이브러리 추가
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-// Axios 인스턴스 생성
 const api = axios.create({
-  baseURL: 'http://localhost:4000', // baseURL 설정
-  timeout: 10000, // 요청 타임아웃 설정 (옵션)
+  baseURL: 'http://localhost:4000',
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
-    // 기타 필요한 헤더 설정
-  }
+  },
 });
 
 function MainPage() {
@@ -22,6 +20,7 @@ function MainPage() {
   const [checkInTime2, setCheckInTime2] = useState(null);
   const [campName, setCampName] = useState('');
   const [facilities, setFacilities] = useState([]);
+  const navigate = useNavigate();
 
   const handleSidoChange = (e) => {
     setSelectedSido(e.target.value);
@@ -66,19 +65,18 @@ function MainPage() {
       campName,
       selectedSido,
       selectedSigungu,
-      checkInTime1: checkInTime1 ? checkInTime1.toISOString() : '',
-      checkInTime2: checkInTime2 ? checkInTime2.toISOString() : '',
-      facilities
+      checkInTime1,
+      checkInTime2,
     };
 
     api.post('/camp/search', formData)
       .then(response => {
         console.log('서버 응답:', response.data);
-        // 서버 응답에 따라 추가적인 로직을 처리할 수 있습니다.
+        navigate('/search-results', { state: { searchResults: response.data } });
       })
       .catch(error => {
         console.error('서버 요청 실패:', error);
-        // 에러 처리 로직을 추가할 수 있습니다.
+        navigate('/search-results');
       });
   };
   
@@ -107,22 +105,7 @@ function MainPage() {
             >
               <option value="">시/도</option>
               <option value="서울특별시">서울특별시</option>
-              <option value="부산광역시">부산광역시</option>
-              <option value="대구광역시">대구광역시</option>
-              <option value="울산광역시">울산광역시</option>
-              <option value="광주광역시">광주광역시</option>
-              <option value="인천광역시">인천광역시</option>
-              <option value="대전광역시">대전광역시</option>
-              <option value="세종특별자치시">세종특별자치시</option>
               <option value="경기도">경기도</option>
-              <option value="강원도">강원도</option>
-              <option value="충청북도">충청북도</option>
-              <option value="충청남도">충청남도</option>
-              <option value="전라북도">전라북도</option>
-              <option value="전라남도">전라남도</option>
-              <option value="경상북도">경상북도</option>
-              <option value="경상남도">경상남도</option>
-              <option value="제주특별자치도">제주특별자치도</option>
             </select>
           </form>
           <form className="address-sigungu">
@@ -135,36 +118,7 @@ function MainPage() {
               {selectedSido === '서울특별시' && (
                 <>
                   <option value="강남구">강남구</option>
-                  <option value="강동구">강남구</option>
-                  <option value="강북구">강북구</option>
-                  <option value="강서구">강서구</option>
-                  <option value="관악구">관악구</option>
-                  <option value="광진구">광진구</option>
-                  <option value="구로구">구로구</option>
-                  <option value="금천구">금천구</option>
-                  <option value="노원구">노원구</option>
-                  <option value="도봉구">도봉구</option>
-                  <option value="동대문구">동대문구</option>
-                  <option value="동작구">동작구</option>
-                  <option value="마포구">마포구</option>
-                  <option value="서대문구">서대문구</option>
-                  <option value="서초구">서초구</option>
-                  <option value="성동구">성동구</option>
-                  <option value="성북구">성북구</option>
                   <option value="송파구">송파구</option>
-                  <option value="양천구">양천구</option>
-                  <option value="영등포구">영등포구</option>
-                  <option value="용산구">용산구</option>
-                  <option value="은평구">은평구</option>
-                  <option value="종로구">종로구</option>
-                  <option value="중구">중구</option>
-                  <option value="중랑구">중랑구</option>
-                </>
-              )}
-              {selectedSido === '부산광역시' && (
-                <>
-                  <option value="수원시">수원시</option>
-                  <option value="용인시">용인시</option>
                 </>
               )}
               {selectedSido === '경기도' && (
@@ -173,19 +127,6 @@ function MainPage() {
                   <option value="용인시">용인시</option>
                 </>
               )}
-              {selectedSido === '경기도' && (
-                <>
-                  <option value="수원시">수원시</option>
-                  <option value="용인시">용인시</option>
-                </>
-              )}
-              {selectedSido === '경기도' && (
-                <>
-                  <option value="수원시">수원시</option>
-                  <option value="용인시">용인시</option>
-                </>
-              )}
-              {/* 다른 시/군/구 옵션들 추가 */}
             </select>
           </form>
         </div>

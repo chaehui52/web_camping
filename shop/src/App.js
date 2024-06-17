@@ -113,7 +113,7 @@ function App() {
         <Route path="/" element={<LoginPage/>} />
         <Route path="/main" element={<MainPage/>} />
         <Route path="/search-results" element={<SearchResultPage searchResults={results} />} />
-        <Route path="/detail/:groundID" element={<DetailInformationPage/>}/>
+        <Route path="/detail" element={<DetailInformationPage/>}/>
         <Route path="/register" element={<RegisterSitePage/>}/>
         <Route path="/register-camping" element={<RegisterCampingPage onAddCamping={handleAddCamping}/>}/>
       </Routes>
