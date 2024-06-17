@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import MainPage from './view/MainPage/MainPage';
 import DetailInformationPage from './view/MainPage/DetailInformationPage';
@@ -97,14 +98,21 @@ function App() {
   };
 
 
-  //return <LoginPage/>
-  //return <MainPage/>
-  //return <SearchResultPage results={results} />
-  return <DetailInformationPage/>
-  //return <RegisterSitePage/>
   //return <WriteReviewPage/>
-  return <RegisterCampingPage onAddCamping={handleAddCamping}/>
   //return <WriteReviewCheck reviews={reviews} />
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage/>} />
+        <Route path="/main" element={<MainPage/>} />
+        <Route path="/search-results" element={<SearchResultPage searchResults={results} />} />
+        <Route path="/results-details" element={<DetailInformationPage/>}/>
+        <Route path="/register" element={<RegisterSitePage/>}/>
+        <Route path="register-camping" element={<RegisterCampingPage onAddCamping={handleAddCamping}/>}/>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

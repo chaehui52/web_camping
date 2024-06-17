@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import './MainPage.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import axios from 'axios'; // Axios 라이브러리 추가
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-// Axios 인스턴스 생성
 const api = axios.create({
-  baseURL: 'http://localhost:4000', // baseURL 설정
-  timeout: 10000, // 요청 타임아웃 설정 (옵션)
+  baseURL: 'http://localhost:4000',
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
-    // 기타 필요한 헤더 설정
-  }
+  },
 });
 
 function MainPage() {
@@ -21,6 +20,7 @@ function MainPage() {
   const [checkInTime2, setCheckInTime2] = useState(null);
   const [campName, setCampName] = useState('');
   const [facilities, setFacilities] = useState([]);
+  const navigate = useNavigate();
 
   const handleSidoChange = (e) => {
     setSelectedSido(e.target.value);
@@ -67,17 +67,17 @@ function MainPage() {
       selectedSido,
       selectedSigungu,
       checkInTime1,
-      checkInTime2
+      checkInTime2,
     };
 
-    api.get('/camp/search', formData.campName)
+    api.get('/camp/search', { params: formData })
       .then(response => {
         console.log('서버 응답:', response.data);
-        // 서버 응답에 따라 추가적인 로직을 처리할 수 있습니다.
+        navigate('/search-results', { state: { searchResults: response.data } });
       })
       .catch(error => {
         console.error('서버 요청 실패:', error);
-        // 에러 처리 로직을 추가할 수 있습니다.
+        navigate('/search-results');
       });
   };
 
@@ -106,7 +106,6 @@ function MainPage() {
               <option value="">시/도</option>
               <option value="서울특별시">서울특별시</option>
               <option value="경기도">경기도</option>
-              {/* 다른 시/도 옵션들 추가 */}
             </select>
           </form>
           <form className="address-sigungu">
@@ -128,7 +127,6 @@ function MainPage() {
                   <option value="용인시">용인시</option>
                 </>
               )}
-              {/* 다른 시/군/구 옵션들 추가 */}
             </select>
           </form>
         </div>
