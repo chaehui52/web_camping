@@ -13,6 +13,8 @@ const api = axios.create({
   },
 });
 
+
+// 
 function MainPage() {
   const [selectedSido, setSelectedSido] = useState('');
   const [selectedSigungu, setSelectedSigungu] = useState('');
@@ -60,10 +62,9 @@ function MainPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const formData = {
       campName,
-      facilities,
       selectedSido,
       selectedSigungu,
       checkInTime1,
@@ -80,6 +81,7 @@ function MainPage() {
         navigate('/search-results');
       });
   };
+  
 
   return (
     <div className="container">
