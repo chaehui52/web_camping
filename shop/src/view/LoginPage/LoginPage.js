@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './LoginPage.css'
+import './LoginPage.css';
 
 const api = axios.create({
   baseURL: 'http://localhost:4000',
@@ -26,15 +26,24 @@ function LoginPage() {
 
     try {
       const response = await api.post('/user/login', formData);
-      if (response.data[0].result === 'true') {
-        console.log('로그인 성공:', response.data);
-        navigate('/main');
-      }
-      else {
-        console.log('로그인 실패:', response.data);
+      const loginResult = response.data;
+
+      if (loginResult.result === 'true') {
+        // 로그인 성공
+        const userType = loginResult.userType;
+
+        if (userType === 'Owner') {
+          navigate('/register-camping');
+        } else if (userType === 'Client') {
+          navigate('/main');
+        }
+      } else {
+        // 로그인 실패
+        console.log('로그인 실패:', loginResult.message);
+        // 실패 메시지를 사용자에게 표시하거나 다른 처리를 수행할 수 있습니다.
       }
     } catch (error) {
-      // 로그인 실패 시 처리
+      // 네트워크 오류 등으로 인한 로그인 실패
       console.error('로그인 실패:', error.message);
       // 에러 메시지를 사용자에게 표시하거나 다른 처리를 수행할 수 있습니다.
     }
