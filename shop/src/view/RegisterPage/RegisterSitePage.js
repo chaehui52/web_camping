@@ -78,7 +78,7 @@ function RegisterSitePage() {
           onChange={(time) => setCheckInTime(time)}
           showTimeSelect
           showTimeSelectOnly
-          timeIntervals={15}
+          timeIntervals={10}
           timeCaption="입실 시간"
           dateFormat="h:mm aa"
           className="datePickerInput"
@@ -90,7 +90,7 @@ function RegisterSitePage() {
           onChange={(time) => setCheckOutTime(time)}
           showTimeSelect
           showTimeSelectOnly
-          timeIntervals={15}
+          timeIntervals={10}
           timeCaption="퇴실 시간"
           dateFormat="h:mm aa"
           className="datePickerInput"

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DetailInformationPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function DetailInformationPage() {
   const [checkInTime, setCheckInTime] = useState(null);
@@ -9,6 +10,8 @@ function DetailInformationPage() {
   const [adultCount, setAdultCount] = useState(1); // 기본 성인 인원 수 1로 설정
   const [kidCount, setKidCount] = useState(0); // 기본 유아 인원 수 0으로 설정
   const [selectedSite, setSelectedSite] = useState(null); // 선택된 사이트 정보
+
+  const navigate = useNavigate();
 
   // 임의의 예시 데이터 (실제 서버에서 가져오는 데이터 대신 사용됨)
   const campingInfo = {
@@ -126,6 +129,7 @@ function DetailInformationPage() {
 
     // 예약이 완료되었다는 메시지 또는 화면 전환 등을 처리할 수 있습니다.
     alert('예약이 완료되었습니다.');
+    navigate('/mypage');
   };
 
   return (

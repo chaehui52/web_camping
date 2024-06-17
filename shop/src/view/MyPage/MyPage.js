@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MyPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function MyPageAfter({ ClientID, reservations }) {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState('이용 전');
-  const [reservationsState, setReservationsState] = useState(reservations); // 예약 정보 상태를 useState로 관리
+  const [reservationsState, setReservationsState] = useState(reservations || []); // 예약 정보 상태를 useState로 관리
+
+  useEffect(() => {
+    setReservationsState(reservations || []);
+  }, [reservations]);
 
   // 예약 상태에 따른 색상과 텍스트를 반환하는 함수
   const getStatusProps = (reservation) => {
@@ -21,14 +27,26 @@ function MyPageAfter({ ClientID, reservations }) {
 
   // 예약 취소 처리 함수
   const handleCancelReservation = (index) => {
-    // 예약 정보 배열을 복사하여 수정
-    const updatedReservations = [...reservationsState];
-    updatedReservations[index].status = '이용 취소';  // 해당 예약의 상태를 '이용 취소'로 변경
-    setReservationsState(updatedReservations);  // 상태 업데이트
+    const updatedReservations = [...reservationsState]; // 예약 배열을 복제하여 안전하게 수정합니다.
+    updatedReservations[index].status = '이용 취소';
+    setReservationsState(updatedReservations);
+  };
+
+  const handleWriteReviewClick = () => {
+    navigate('/review-check'); // WriteReviewPage 경로로 이동
   };
 
   // 선택된 필터에 따라 예약 정보를 필터링하는 로직
-  const filteredReservations = reservationsState.filter(reservation => reservation.status === filter);
+  const filteredReservations = reservationsState.filter(reservation => {
+    if (filter === '이용 전') {
+      return reservation.status !== '이용 취소' && new Date(reservation.checkIn) > new Date();
+    } else if (filter === '이용 후') {
+      return reservation.status === '이용 후' && !reservation.reviewWritten;
+    } else if (filter === '이용 취소') {
+      return reservation.status === '이용 취소';
+    }
+    return true;
+  });
 
   return (
     <div className="container">
@@ -61,6 +79,20 @@ function MyPageAfter({ ClientID, reservations }) {
             )}
             {reservation.status === '이용 전' && ( // '이용 전' 상태일 때만 취소 버튼 표시
               <button className="cancel-button" onClick={() => handleCancelReservation(index)}>취소</button>
+            )}
+
+            {reservation.status === '이용 후' && (
+              <>
+                {reservation.reviewWritten ? (
+                  <button className="complete-button" disabled>
+                    작성 완료
+                  </button>
+                ) : (
+                  <button className="write-button" onClick={handleWriteReviewClick}>
+                    리뷰 작성
+                  </button>
+                )}
+              </>
             )}
           </div>
         );

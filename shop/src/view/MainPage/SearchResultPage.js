@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SearchResultPage.css';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function SearchResultPage() {
   const [searchResults, setSearchResults] = useState([]);

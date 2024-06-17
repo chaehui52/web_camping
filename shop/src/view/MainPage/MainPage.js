@@ -4,12 +4,17 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const api = axios.create({
   baseURL: 'http://localhost:4000',
   timeout: 10000,
+  baseURL: 'http://localhost:4000',
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
+  },
   },
 });
 
@@ -72,6 +77,7 @@ function MainPage() {
     };
 
     api.post('/camp/search', formData)
+    api.post('/camp/search', formData)
       .then(response => {
         console.log('서버 응답:', response.data);
 
@@ -83,6 +89,7 @@ function MainPage() {
       })
       .catch(error => {
         console.error('서버 요청 실패:', error);
+        navigate('/search-results');
         navigate('/search-results');
       });
   };
@@ -127,10 +134,10 @@ function MainPage() {
                   <option value="송파구">송파구</option>
                 </>
               )}
-              {selectedSido === '경기도' && (
+              {selectedSido === '제주특별자치도' && (
                 <>
-                  <option value="수원시">수원시</option>
-                  <option value="용인시">용인시</option>
+                  <option value="제주시">제주시</option>
+                  <option value="서귀포시">서귀포시</option>
                 </>
               )}
             </select>

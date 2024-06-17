@@ -89,6 +89,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage/>} />
+
         <Route path="/main" element={<MainPage/>} />
         <Route path="/search-results" element={<SearchResultPage />} />
         <Route path="/detail/:groundID" element={<DetailInformationPage/>}/>
