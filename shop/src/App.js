@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import MainPage from './view/MainPage/MainPage';
 import DetailInformationPage from './view/MainPage/DetailInformationPage';
 import LoginPage from './view/LoginPage/LoginPage';
@@ -23,32 +23,6 @@ const reservations = [
     adultCount: 2,
     childCount: 1,
     status: '이용 전',
-    imgSrc: '/path/to/image.jpg'
-  },
-  {
-    type: '캠핑',
-    campName: '캠프장 B',
-    city: '대구',
-    town: '수성구',
-    detailAddress: "123-5번지",
-    checkIn: '2024-05-05',
-    checkOut: '2024-06-01',
-    adultCount: 1,
-    childCount: 1,
-    status: '이용 후',
-    imgSrc: '/path/to/image.jpg'
-  },
-  {
-    type: '펜션',
-    campName: '펜션A',
-    city: '서울',
-    town: '어딜까',
-    detailAddress: "상세 주소랍니다",
-    checkIn: '2024-04-06',
-    checkOut: '2024-07-09',
-    adultCount: 5,
-    childCount: 1,
-    status: '이용 취소',
     imgSrc: '/path/to/image.jpg'
   }
   // 추가 예약 데이터들...
@@ -80,34 +54,53 @@ const results = [
   }
 ];
 
-
 const reviews = [
   {
     imgSrc: '/path/to/image1.jpg',
     title: '제목제목',
     content: '내용내용',
-    id: 'abdsrsscd'  // 예시 리뷰 ID
-  },
-  {
-    imgSrc: '/path/to/image2.jpg',
-    title: '제목제목제목',
-    content: '내용내용내용',
-    id: 'anotherID'  // 예시 리뷰 ID
-  },
-  {
-    imgSrc: '/path/to/image3.jpg',
-    title: '제목제목제목제목',
-    content: '내용내용내용내용',
-    id: 'thirdID'  // 예시 리뷰 ID
   }
   // 추가 리뷰를 여기에 추가하세요
 ];
 
+const registerSites = [
+  {
+    name: "야옹",
+    checkInTime: "AM 9:00",
+    checkOutTime: "PM 16:00",
+    type: "캠핑장",
+    price: "100,000원",
+    imgSrc: '/path/to/image1.jpg'
+  }
+]
+
+const registerCampinges = [
+  {
+    name: "캠핑장",
+    city: '서울',
+    town: '강남구',
+    detailAddress: '123-456번지',
+    number: "053-632-6837",
+    mannertimestart : "PM 10:00",
+    mannertimeend : "AM 6:00",
+    type : "캠핑장",
+    playing: "낚시",
+    surrounding : "바다"
+  }
+]
+
 function App() {
+  const [registerCampinges, setRegisterCampinges] = useState([]);
+
+  const handleAddCamping = (newCamping) => {
+    setRegisterCampinges((prev) => [...prev, newCamping]);
+  };
+
+
   //return <LoginPage/>
   return <MainPage/>
   //return <SearchResultPage results={results} />
-  //return <DetailInformationPage/>
+  return <DetailInformationPage/>
   //return <RegisterSitePage/>
   //return <WriteReviewPage/>
   //return <RegisterCampingPage/>

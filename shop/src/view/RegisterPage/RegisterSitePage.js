@@ -10,6 +10,24 @@ function RegisterSitePage() {
   const [checkOutTime1, setCheckOutTime1] = useState(null);
   const [checkInTime2, setCheckInTime2] = useState(null);
   const [checkOutTime2, setCheckOutTime2] = useState(null);
+  const [siteName1, setSiteName1] = useState('');
+  const [siteName2, setSiteName2] = useState('');
+  const [sitePrice1, setSitePrice1] = useState('');
+  const [sitePrice2, setSitePrice2] = useState('');
+  const [facility1, setFacility1] = useState({
+    camping: false,
+    glamping: false,
+    caravan: false,
+    pension: false,
+  });
+  const [facility2, setFacility2] = useState({
+    camping: false,
+    glamping: false,
+    caravan: false,
+    pension: false,
+  });
+
+  const [registerSites, setRegisterSites] = useState([]);
 
   const handleFileChange1 = (event) => {
     const file = event.target.files[0];
@@ -33,16 +51,49 @@ function RegisterSitePage() {
     }
   };
 
+  const handleNext = () => {
+    const newSites = [
+      {
+        name: siteName1,
+        checkInTime: checkInTime1 ? checkInTime1.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
+        checkOutTime: checkOutTime1 ? checkOutTime1.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
+        type: Object.keys(facility1).filter(key => facility1[key]).join(', '),
+        price: `${sitePrice1}원`,
+        imgSrc: preview1
+      },
+      {
+        name: siteName2,
+        checkInTime: checkInTime2 ? checkInTime2.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
+        checkOutTime: checkOutTime2 ? checkOutTime2.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '',
+        type: Object.keys(facility2).filter(key => facility2[key]).join(', '),
+        price: `${sitePrice2}원`,
+        imgSrc: preview2
+      }
+    ];
+
+    setRegisterSites([...registerSites, ...newSites]);
+  };
+
   return (
     <div className="registerSiteContainer">
       <h1>사이트 등록</h1>
       <div className="siteNameLabel">사이트1 이름</div>
       <div className="siteNameInput">
-        <input type="text" className="textInput" />
+        <input
+          type="text"
+          className="textInput"
+          value={siteName1}
+          onChange={(e) => setSiteName1(e.target.value)}
+        />
       </div>
       <div className="siteNameLabel3">사이트2 이름</div>
       <div className="siteNameInput3">
-        <input type="text" className="textInput" />
+        <input
+          type="text"
+          className="textInput"
+          value={siteName2}
+          onChange={(e) => setSiteName2(e.target.value)}
+        />
       </div>
       <div className="noticeText">캠핑장 등록시 사이트를 최소 2개 이상 등록해야 합니다.</div>
       <div className="photoUploadLabel">사진 등록</div>
@@ -64,12 +115,22 @@ function RegisterSitePage() {
       <div className="siteNameLabel2">사이트1 가격</div>
       <div className="sitePriceLabel">원</div>
       <div className="siteNameInput2">
-        <input type="text" className="textInput" />
+        <input
+          type="text"
+          className="textInput"
+          value={sitePrice1}
+          onChange={(e) => setSitePrice1(e.target.value)}
+        />
       </div>
       <div className="siteNameLabel4">사이트2 가격</div>
       <div className="sitePriceLabel2">원</div>
       <div className="siteNameInput4">
-        <input type="text" className="textInput" />
+        <input
+          type="text"
+          className="textInput"
+          value={sitePrice2}
+          onChange={(e) => setSitePrice2(e.target.value)}
+        />
       </div>
       <div className="checkInTimeLabel">사이트1 입퇴실 시간</div>
       <div className="checkInTimeFrom">
@@ -124,40 +185,81 @@ function RegisterSitePage() {
       <div className="facilityInfoLabel">시설 정보</div>
       <div className="facilityCampingLabel">캠핑장</div>
       <div className="facilityCampingCheckbox">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility1.camping}
+          onChange={(e) => setFacility1({ ...facility1, camping: e.target.checked })}
+        />
       </div>
       <div className="facilityGlampingLabel">글램핑</div>
       <div className="facilityGlampingCheckbox">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility1.glamping}
+          onChange={(e) => setFacility1({ ...facility1, glamping: e.target.checked })}
+        />
       </div>
       <div className="facilityCaravanLabel">카라반</div>
       <div className="facilityCaravanCheckbox">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility1.caravan}
+          onChange={(e) => setFacility1({ ...facility1, caravan: e.target.checked })}
+        />
       </div>
       <div className="facilityPensionLabel">펜션</div>
       <div className="facilityPensionCheckbox">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility1.pension}
+          onChange={(e) => setFacility1({ ...facility1, pension: e.target.checked })}
+        />
       </div>
       <div className="facilityInfoLabel2">시설 정보</div>
       <div className="facilityCampingLabel2">캠핑장</div>
       <div className="facilityCampingCheckbox2">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility2.camping}
+          onChange={(e) => setFacility2({ ...facility2, camping: e.target.checked })}
+        />
       </div>
       <div className="facilityGlampingLabel2">글램핑</div>
       <div className="facilityGlampingCheckbox2">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility2.glamping}
+          onChange={(e) => setFacility2({ ...facility2, glamping: e.target.checked })}
+        />
       </div>
       <div className="facilityCaravanLabel2">카라반</div>
       <div className="facilityCaravanCheckbox2">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility2.caravan}
+          onChange={(e) => setFacility2({ ...facility2, caravan: e.target.checked })}
+        />
       </div>
       <div className="facilityPensionLabel2">펜션</div>
       <div className="facilityPensionCheckbox2">
-        <input type="checkbox" className="checkboxInput" />
+        <input
+          type="checkbox"
+          className="checkboxInput"
+          checked={facility2.pension}
+          onChange={(e) => setFacility2({ ...facility2, pension: e.target.checked })}
+        />
       </div>
-      <div className="nextButton">
+      <div className="nextButton" onClick={handleNext}>
         <div className="buttonText">다음</div>
       </div>
+      {/* Register sites preview */}
     </div>
   );
 }

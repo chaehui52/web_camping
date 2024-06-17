@@ -1,3 +1,13 @@
+.container {
+  width: 80%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.container h1 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
 
 .camping {
   display: flex;
@@ -5,8 +15,8 @@
 }
 
 .camping-info-img {
-  width: 413px;
-  height: 241px;
+  width: 200px;
+  height: auto;
   margin-right: 20px;
 }
 
@@ -15,49 +25,67 @@
 }
 
 .camping-info-category {
-  font-size: 18px;
-  font-weight: bold;
-  color: #777;
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .camping-info-title {
-  font-size: 24px;
-  margin: 5px 0;
+  font-size: 1.8rem;
+  margin: 10px 0;
 }
 
 .camping-info-address,
-.camping-info-phone,
+.camping-info-phone {
+  margin-bottom: 5px;
+}
+
 .camping-info-intro,
 .camping-info-description {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
-hr {
-  margin: 20px 0;
-  border: 0;
-  border-top: 1px solid #ddd;
+.camping-category {
+  display: flex;
+  align-items: center;
 }
 
-.camping-category,
+.category-info {
+  display: flex;
+  align-items: center;
+}
+
+.camping-category-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.facility-info {
+  margin-bottom: 20px;
+}
+
+.facility-info h4 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
 .amenities-info,
 .doing-info,
 .circumstance-info {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
-.category-info,
-.amenities-info > div,
-.doing-info > div,
-.circumstance-info > div {
+.amenity-item,
+.doing-info,
+.circumstance-info {
   display: flex;
   align-items: center;
   margin-right: 20px;
 }
 
-.camping-category-icon,
-.amenities-category,
+.amenity-icon,
 .doing-category,
 .circumstance-category {
   width: 40px;
@@ -70,49 +98,28 @@ hr {
 }
 
 .user-info {
-  margin: 20px 0;
-}
-
-.user-info b {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.datePickerInput {
-  margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 .people-num {
-  display: flex;
-  align-items: center;
   margin-top: 10px;
-}
-
-.people-num label {
-  margin-right: 10px;
-}
-
-.people-num select {
-  margin-right: 20px;
 }
 
 .site-type {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  margin: 20px 0;
 }
 
 .site {
-  border: 1px solid #ddd;
-  padding: 10px;
+  width: 100%;
   display: flex;
+  margin-bottom: 20px;
 }
 
 .site-img {
-  width: 235px;
-  height: 203px;
-  margin-right: 10px;
+  width: 235px; /* 수정된 사이즈에 맞게 설정 */
+  height: 203px; /* 수정된 사이즈에 맞게 설정 */
+  margin-right: 20px;
 }
 
 .site-info {
@@ -120,41 +127,36 @@ hr {
 }
 
 .site-category {
-  font-size: 14px;
-  color: #777;
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .site-name {
-  font-size: 18px;
+  font-size: 1.2rem;
   margin: 5px 0;
 }
 
-.site-info p {
-  margin: 5px 0;
-}
-
+.checkin-time,
+.checkout-time,
+.max-people,
 .site-price {
-  font-size: 18px;
-  color: #d9534f;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .site-status {
-  background-color: #5cb85c;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 15px;
   cursor: pointer;
 }
 
 .review-status {
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .review {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .review-img {
@@ -163,17 +165,21 @@ hr {
   margin-right: 10px;
 }
 
-.review-title {
-  font-size: 16px;
+.user-info {
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
+.review-title {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
 .review-content {
-  margin: 0;
+  margin: 5px 0;
 }
 
 hr {
-  margin: 10px 0;
-  border: 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
 }
