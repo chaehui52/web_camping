@@ -18,6 +18,7 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
   const [reviewID, setReviewID] = useState('');
   const [groundID, setGroundID] = useState('');
   const [resID, setResID] = useState('');
+  const [Title, setTitle] = useState('');
 
   const handlePhotoUpload = (event) => {
     const file = event.target.files[0];
@@ -40,7 +41,8 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
       coment,
       reviewID,
       groundID,
-      resID
+      resID,
+      Title
     };
 
     api.post('/review/write', formData)
@@ -58,9 +60,6 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
   return (
     <div className="writeReviewContainer">
       <h1>리뷰 작성</h1>
-      <form onSubmit={handleSubmit}>
-        <button type="submit">등록</button>
-      </form>
       <div className="rectangle56" onClick={() => document.getElementById('photoInput').click()}>
         {picUrl ? (
           <img className="reviewPhoto" src={picUrl} alt="Uploaded" />
@@ -69,9 +68,20 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
         )}
         <input id="photoInput" className="photoInput" type="file" accept="image/*" onChange={handlePhotoUpload} />
       </div>
+      <div className="rectangle58">
+        <textarea className="reviewTitleInput" placeholder="제목 입력" value={Title} onChange={(e) => setTitle(e.target.value)}></textarea>
+      </div>
       <div className="rectangle57">
         <textarea className="reviewContentInput" placeholder="세부 리뷰 내용 입력" value={coment} onChange={(e) => setComent(e.target.value)}></textarea>
       </div>
+      <form onSubmit={handleSubmit}>
+      <button type="submit" className='button registerButton'>
+          <span className="buttonText">등록</span>
+        </button>
+      </form>
+      <button type="button" className='button cancelButton' onClick={() => window.history.back()}>
+        <span className="buttonText2">취소</span>
+      </button>
     </div>
   );
 }
