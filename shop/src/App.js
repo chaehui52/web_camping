@@ -99,9 +99,9 @@ function App() {
 
 
   //return <LoginPage/>
-  return <MainPage/>
+  //return <MainPage/>
   //return <SearchResultPage results={results} />
-  return <DetailInformationPage/>
+  //return <DetailInformationPage/>
   //return <RegisterSitePage/>
   //return <WriteReviewPage/>
   //return <RegisterCampingPage/>
@@ -114,9 +114,9 @@ function App() {
         <Route path="/" element={<LoginPage/>} />
         <Route path="/main" element={<MainPage/>} />
         <Route path="/search-results" element={<SearchResultPage searchResults={results} />} />
-        <Route path="/results-details" element={<DetailInformationPage/>}/>
+        <Route path="/detail/:groundID" element={<DetailInformationPage/>}/>
         <Route path="/register" element={<RegisterSitePage/>}/>
-        <Route path="register-camping" element={<RegisterCampingPage onAddCamping={handleAddCamping}/>}/>
+        <Route path="/register-camping" element={<RegisterCampingPage onAddCamping={handleAddCamping}/>}/>
       </Routes>
     </Router>
   );

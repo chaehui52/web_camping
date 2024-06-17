@@ -1,19 +1,26 @@
+// SearchResultPage.js
 import React from 'react';
 import './SearchResultPage.css';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function SearchResultPage(props) {
-  //const location = useLocation();
-  //const { searchResults } = location.state || {};
+function SearchResultPage({ searchResults }) {
+  const navigate = useNavigate();
 
-  const {searchResults} = props;
+  const handleResultClick = (groundID) => {
+    console.log(`Selected groundID: ${groundID}`);
+    navigate(`/detail/${groundID}`);
+  };
 
   return (
     <div className="search-result-container">
       <h1>검색 결과</h1>
-      {searchResults ? (
+      {searchResults && searchResults.length > 0 ? (
         searchResults.map((result, index) => (
-          <div key={index} className="result">
+          <div 
+            key={index} 
+            className="result"
+            onClick={() => handleResultClick(result.groundID)}
+          >
             <img className="image" src={result.imgSrc} alt={result.name} />
             <div className="info">
               <p className="type">{result.type}</p>

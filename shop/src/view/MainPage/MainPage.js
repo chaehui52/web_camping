@@ -13,8 +13,6 @@ const api = axios.create({
   },
 });
 
-
-// 
 function MainPage() {
   const [selectedSido, setSelectedSido] = useState('');
   const [selectedSigungu, setSelectedSigungu] = useState('');
@@ -71,7 +69,7 @@ function MainPage() {
       checkInTime2,
     };
 
-    api.get('/camp/search', { params: formData })
+    api.post('/camp/search', formData)
       .then(response => {
         console.log('서버 응답:', response.data);
         navigate('/search-results', { state: { searchResults: response.data } });
