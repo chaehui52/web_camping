@@ -25,13 +25,20 @@ function LoginPage() {
     };
 
     try {
-      const response = await api.post('/user/login', formData);
-      if (response.data[0].result === 'true') {
-        console.log('로그인 성공:', response.data);
-        navigate('/main');
+      const isHost = await api.post('/user/is-host', formData);
+      if (isHost.data[0].result === 'true') {
+        console.log('주인 로그인: ', isHost.data);
+        navigate('/register-camping');
       }
       else {
-        console.log('로그인 실패:', response.data);
+        const response = await api.post('/user/login', formData);
+        if (response.data[0].result === 'true') {
+          console.log('로그인 성공:', response.data);
+          navigate('/main');
+        }
+        else {
+          console.log('로그인 실패:', response.data);
+        }
       }
     } catch (error) {
       // 로그인 실패 시 처리
