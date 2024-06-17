@@ -13,30 +13,30 @@ const api = axios.create({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [userid, setUserId] = useState('');
-  const [password, setPassword] = useState('');
+  const [id, setUserId] = useState('');
+  const [pw, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     const formData = {
-      userid,
-      password,
+      id,
+      pw
     };
 
     try {
-      const response = await api.post('/api/login', formData);
-
-      // 로그인 성공 시 처리
-      console.log('로그인 성공:', response.data);
-
-      // 로그인 성공 후 MainPage로 이동
-      navigate('/main');
+      const response = await api.post('/user/login', formData);
+      if (response.data[0].result === 'true') {
+        console.log('로그인 성공:', response.data);
+        navigate('/main');
+      }
+      else {
+        console.log('로그인 실패:', response.data);
+      }
     } catch (error) {
       // 로그인 실패 시 처리
       console.error('로그인 실패:', error.message);
       // 에러 메시지를 사용자에게 표시하거나 다른 처리를 수행할 수 있습니다.
-      navigate('/main');
     }
   };
 
@@ -51,7 +51,7 @@ function LoginPage() {
             className='login-id-input' 
             type='text' 
             placeholder='ID를 입력하세요'
-            value={userid}
+            value={id}
             onChange={(e) => setUserId(e.target.value)}
           />
         </form>
@@ -62,7 +62,7 @@ function LoginPage() {
             className='login-pw-input' 
             type='password' 
             placeholder='PW를 입력하세요'
-            value={password}
+            value={pw}
             onChange={(e) => setPassword(e.target.value)}
           />
         </form>
