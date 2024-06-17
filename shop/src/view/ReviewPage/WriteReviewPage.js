@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Review.css';
 import axios from 'axios'; // Axios 라이브러리 추가
+import { useNavigate } from 'react-router-dom';
 
 // Axios 인스턴스 생성
 const api = axios.create({
@@ -19,6 +20,8 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
   const [groundID, setGroundID] = useState('');
   const [resID, setResID] = useState('');
   const [Title, setTitle] = useState('');
+
+  const navigate = useNavigate();
 
   const handlePhotoUpload = (event) => {
     const file = event.target.files[0];
@@ -50,6 +53,7 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
         console.log('서버 응답:', response.data);
         // 서버 응답에 따라 추가적인 로직을 처리할 수 있습니다.
         addReview(formData);
+        navigate('/review-check');
       })
       .catch(error => {
         console.error('서버 요청 실패:', error);

@@ -97,26 +97,22 @@ function App() {
     setRegisterCampinges((prev) => [...prev, newCamping]);
   };
 
-
-  //return <LoginPage/>
-  return <MainPage/>
-  //return <SearchResultPage results={results} />
-  return <DetailInformationPage/>
-  //return <RegisterSitePage/>
-  // return <WriteReviewPage/>
-  //return <RegisterCampingPage/>
-  // return <WriteReviewCheck reviews={reviews} />
-
-
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage/>} />
+
         <Route path="/main" element={<MainPage/>} />
-        <Route path="/search-results" element={<SearchResultPage searchResults={results} />} />
         <Route path="/results-details" element={<DetailInformationPage/>}/>
-        <Route path="/register" element={<RegisterSitePage/>}/>
+        <Route path="/search-results" element={<SearchResultPage searchResults={results} />} />
+
+        <Route path="/mypage" element={<MyPage/>} />
+
         <Route path="register-camping" element={<RegisterCampingPage onAddCamping={handleAddCamping}/>}/>
+        <Route path="/register-site" element={<RegisterSitePage/>}/>
+
+        <Route path="review-write" element={<WriteReviewPage/>} />
+        <Route path="review-check" element={<WriteReviewCheck/>} />
       </Routes>
     </Router>
   );

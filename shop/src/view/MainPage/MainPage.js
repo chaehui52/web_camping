@@ -425,6 +425,12 @@ function MainPage() {
                   <option value="합천군">합천군</option>
                 </>
               )}
+              {selectedSido === '제주특별자치도' && (
+                <>
+                  <option value="제주시">제주시</option>
+                  <option value="서귀포시">서귀포시</option>
+                </>
+              )}
               {/* 다른 시/군/구 옵션들 추가 */}
             </select>
           </form>

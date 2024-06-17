@@ -107,3 +107,25 @@ h1 {
 .cancel-button:hover {
   background-color: #d50000;
 }
+
+.write-button {
+  background-color: #ff1744;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.write-button:hover {
+  background-color: #d50000;
+}
+
+.complete-button {
+  background-color: #6d6d6d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
