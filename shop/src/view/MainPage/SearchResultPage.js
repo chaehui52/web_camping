@@ -10,23 +10,25 @@ function SearchResultPage(props) {
 
   return (
     <div className="search-result-container">
-      <h1>검색 결과</h1>
-      {searchResults ? (
-        searchResults.map((result, index) => (
-          <div key={index} className="result">
-            <img className="image" src={result.imgSrc} alt={result.name} />
-            <div className="info">
-              <p className="type">{result.type}</p>
-              <h2 className="name">{result.name}</h2>
-              <p className="address">{result.address}</p>
-              <p className="price">{result.price}</p>
-            </div>
+  <h1>검색 결과</h1>
+  {searchResults && searchResults.length > 0 ? (
+    <ul className="results-list">
+      {searchResults.map((result, index) => (
+        <li key={index} className="result">
+          <img className="image" src={result.imgSrc} alt={result.name} />
+          <div className="info">
+            <p className="type">{result.type}</p>
+            <h2 className="name">{result.name}</h2>
+            <p className="address">{result.address}</p>
+            <p className="price">{result.price}</p>
           </div>
-        ))
-      ) : (
-        <p>검색 결과가 없습니다.</p>
-      )}
-    </div>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>검색 결과가 없습니다.</p>
+  )}
+</div>
   );
 }
 
