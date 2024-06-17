@@ -36,7 +36,7 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
     e.preventDefault();
 
     const formData = {
-      imgSrc:photoUrl,
+      picUrl,
       coment,
       reviewID,
       groundID,
@@ -58,15 +58,12 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
   return (
     <div className="writeReviewContainer">
       <h1>리뷰 작성</h1>
-      <div className="button registerButton" onClick={handleSubmit}>
-        <div className="buttonText">등록</div>
-      </div>
-      <div className="button cancelButton" onClick={() => window.history.back()}>
-        <div className="buttonText2">취소</div>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <button type="submit">등록</button>
+      </form>
       <div className="rectangle56" onClick={() => document.getElementById('photoInput').click()}>
-        {photoUrl ? (
-          <img className="reviewPhoto" src={photoUrl} alt="Uploaded" />
+        {picUrl ? (
+          <img className="reviewPhoto" src={picUrl} alt="Uploaded" />
         ) : (
           <div className="addPhotoText">사진 추가</div>
         )}
@@ -75,11 +72,9 @@ function WriteReviewPage({ reviews, ClientID, addReview }) {
       <div className="rectangle57">
         <textarea className="reviewContentInput" placeholder="세부 리뷰 내용 입력" value={coment} onChange={(e) => setComent(e.target.value)}></textarea>
       </div>
-      <div className="rectangle58">
-        <input className="reviewTitleInput" type="text" placeholder="리뷰 제목 입력" value={title} onChange={(e) => setTitle(e.target.value)} />
-      </div>
     </div>
   );
 }
 
 export default WriteReviewPage;
+
