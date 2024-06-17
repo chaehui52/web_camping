@@ -1,330 +1,264 @@
 .registerSiteContainer {
-    width: 960px;
-    height: 540px;
-    position: relative;
-    background: white;
+  width: 960px;
+  height: 540px;
+  position: relative;
+  background: white;
+}
+
+.siteNameLabel,
+.siteNameLabel2,
+.photoUploadLabel,
+.sitePriceLabel,
+.checkInTimeLabel,
+.facilityInfoLabel,
+.facilityCampingLabel,
+.facilityGlampingLabel,
+.facilityCaravanLabel,
+.facilityPensionLabel {
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-family: 'Inter';
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.siteNameLabel {
+  left: 47px;
+  top: 108px;
+}
+
+.siteNameLabel2 {
+  left: 48px;
+  top: 223px;
   }
-  
-  .siteNameLabel,
-  .siteNameLabel2,
-  .siteNameLabel3,
-  .siteNameLabel4,
-  .photoUploadLabel,
-  .photoUploadLabel2,
-  .siteNameLabel,
-  .sitePriceLabel,
-  .sitePriceLabel2,
-  .checkInTimeLabel,
-  .checkInTimeLabel2,
-  .facilityInfoLabel,
-  .facilityInfoLabel2,
-  .facilityCampingLabel,
-  .facilityCampingLabel2,
-  .facilityGlampingLabel,
-  .facilityGlampingLabel2,
-  .facilityCaravanLabel,
-  .facilityCaravanLabel2,
-  .facilityPensionLabel,
-  .facilityPensionLabel2 {
-    position: absolute;
-    color: black;
-    font-size: 15px;
-    font-family: 'Inter';
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .siteNameLabel {
-    left: 47px;
-    top: 108px;
-  }
-  
-  .siteNameLabel2 {
-    left: 48px;
-    top: 223px;
-  }
-  
-  .siteNameLabel3 {
-    left: 555px;
-    top: 108px;
-  }
-  
-  .siteNameLabel4 {
-    left: 556px;
-    top: 223px;
-  }
-  
-  .photoUploadLabel {
-    left: 48px;
-    top: 256px;
-  }
-  
-  .photoUploadLabel2 {
-    left: 556px;
-    top: 256px;
-  }
-  
-  .sitePriceLabel {
-    left: 300px;
-    top: 224px;
-  }
-  
-  .sitePriceLabel2 {
-    left: 808px;
-    top: 224px;
-  }
-  
-  .checkInTimeLabel {
-    left: 47px;
-    top: 149px;
-  }
-  
-  .checkInTimeLabel2 {
-    left: 555px;
-    top: 149px;
-  }
-  
-  .facilityInfoLabel {
-    left: 48px;
-    top: 184px;
-  }
-  
-  .facilityInfoLabel2 {
-    left: 556px;
-    top: 184px;
-  }
-  
-  .facilityCampingLabel {
-    left: 155px;
-    top: 184px;
-  }
-  
-  .facilityCampingLabel2 {
-    left: 663px;
-    top: 184px;
-  }
-  
-  .facilityGlampingLabel {
-    left: 246px;
-    top: 184px;
-  }
-  
-  .facilityGlampingLabel2 {
-    left: 754px;
-    top: 184px;
-  }
-  
-  .facilityCaravanLabel {
-    left: 337px;
-    top: 184px;
-  }
-  
-  .facilityCaravanLabel2 {
-    left: 845px;
-    top: 184px;
-  }
-  
-  .facilityPensionLabel {
-    left: 421px;
-    top: 184px;
-  }
-  
-  .facilityPensionLabel2 {
-    left: 929px;
-    top: 184px;
-  }
-  
-  .noticeText {
-    left: 330px;
-    top: 504px;
-    position: absolute;
-    color: #4C4C4C;
-    font-size: 12px;
-    font-family: 'Inter';
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .textInput {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    font-family: 'Inter';
-    background: none;
-  }
-  
-  .checkboxInput {
-    width: 16px;
-    height: 15px;
-    background: white;
-  }
-  
-  .siteNameInput,
-  .siteNameInput2,
-  .siteNameInput3,
-  .siteNameInput4 {
-    width: 155px;
-    height: 19px;
-    position: absolute;
-    background: white;
-  }
-  
-  .siteNameInput {
-    left: 135px;
-    top: 108px;
-  }
-  
-  .siteNameInput2 {
-    left: 136px;
-    top: 223px;
-  }
-  
-  .siteNameInput3 {
-    left: 643px;
-    top: 108px;
-  }
-  
-  .siteNameInput4 {
-    left: 644px;
-    top: 223px;
-  }
-  
-  .checkInTimeFrom,
-  .checkInTimeTo,
-  .checkInTimeFrom2,
-  .checkInTimeTo2 {
-    width: 169px;
-    height: 19px;
-    position: absolute;
-  }
-  
-  .checkInTimeFrom {
-    left: 185px;
-    top: 148px;
-  }
-  
-  .checkInTimeTo {
-    left: 355px;
-    top: 148px;
-  }
-  
-  .checkInTimeFrom2 {
-    left: 693px;
-    top: 148px;
-  }
-  
-  .checkInTimeTo2 {
-    left: 863px;
-    top: 148px;
-  }
-  
-  .facilityCampingCheckbox,
-  .facilityGlampingCheckbox,
-  .facilityCaravanCheckbox,
-  .facilityPensionCheckbox,
-  .facilityCampingCheckbox2,
-  .facilityGlampingCheckbox2,
-  .facilityCaravanCheckbox2,
-  .facilityPensionCheckbox2 {
-    position: absolute;
-  }
-  
-  .facilityCampingCheckbox {
-    left: 126px;
-    top: 184px;
-  }
-  
-  .facilityGlampingCheckbox {
-    left: 217px;
-    top: 184px;
-  }
-  
-  .facilityCaravanCheckbox {
-    left: 308px;
-    top: 184px;
-  }
-  
-  .facilityPensionCheckbox {
-    left: 392px;
-    top: 184px;
-  }
-  
-  .facilityCampingCheckbox2 {
-    left: 634px;
-    top: 184px;
-  }
-  
-  .facilityGlampingCheckbox2 {
-    left: 725px;
-    top: 184px;
-  }
-  
-  .facilityCaravanCheckbox2 {
-    left: 816px;
-    top: 184px;
-  }
-  
-  .facilityPensionCheckbox2 {
-    left: 900px;
-    top: 184px;
-  }
-  
-  .nextButton,
-  .loginButton {
-    width: 110px;
-    height: 32px;
-    position: absolute;
-    background: black;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .nextButton {
-    left: 425px;
-    top: 459px;
-  }
-  
-  .buttonText {
-    color: white;
-    font-size: 16px;
-    font-family: 'Inter';
-    font-weight: 500;
-    line-height: 24px;
-    word-wrap: break-word;
-  }
-  
-  .photoPreview,
-  .photoPreview2 {
-    width: 336px; /* 원하는 네모 박스의 너비 */
-    height: 150px; /* 원하는 네모 박스의 높이 */
-    max-width: 336px; /* 네모 박스의 최대 너비 */
-    max-height: 150px; /* 네모 박스의 최대 높이 */
-    position: absolute;
-    background: #D9D9D9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .photoPreview {
-    left: 49px;
-    top: 288px;
-  }
-  
-  .photoPreview2 {
-    left: 557px;
-    top: 288px;
-  }
-  
-  .photoPreview img {
-    max-width: 100%; /* 사진의 최대 너비를 네모 박스 너비에 맞춤 */
-    max-height: 100%; /* 사진의 최대 높이를 네모 박스 높이에 맞춤 */
-    object-fit: contain; /* 사진을 네모 박스 안에 맞춰서 보여줌 */
-  }
-  
+
+.photoUploadLabel {
+  left: 48px;
+  top: 256px;
+}
+
+.sitePriceLabel {
+  left: 300px;
+  top: 224px;
+}
+
+.checkInTimeLabel {
+  left: 47px;
+  top: 149px;
+}
+
+.facilityInfoLabel {
+  left: 48px;
+  top: 184px;
+}
+
+.facilityCampingLabel {
+  left: 155px;
+  top: 184px;
+}
+
+.facilityGlampingLabel {
+  left: 246px;
+  top: 184px;
+}
+
+.facilityCaravanLabel {
+  left: 337px;
+  top: 184px;
+}
+
+.facilityPensionLabel {
+  left: 421px;
+  top: 184px;
+}
+
+.noticeText {
+  left: 330px;
+  top: 504px;
+  position: absolute;
+  color: #4C4C4C;
+  font-size: 12px;
+  font-family: 'Inter';
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.textInput {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: 'Inter';
+  background: none;
+}
+
+.checkboxInput {
+  width: 16px;
+  height: 15px;
+  background: white;
+}
+
+.siteNameInput,
+.siteNameInput2,
+.siteNameInput3,
+.siteNameInput4 {
+  width: 155px;
+  height: 19px;
+  position: absolute;
+  background: white;
+}
+
+.siteNameInput {
+  left: 135px;
+  top: 108px;
+}
+
+.siteNameInput2 {
+  left: 136px;
+  top: 223px;
+}
+
+.siteNameInput3 {
+  left: 643px;
+  top: 108px;
+}
+
+.siteNameInput4 {
+  left: 644px;
+  top: 223px;
+}
+
+.checkInTimeFrom,
+.checkInTimeTo,
+.checkInTimeFrom2,
+.checkInTimeTo2 {
+  width: 169px;
+  height: 19px;
+  position: absolute;
+}
+
+.checkInTimeFrom {
+  left: 185px;
+  top: 148px;
+}
+
+.checkInTimeTo {
+  left: 355px;
+  top: 148px;
+}
+
+.checkInTimeFrom2 {
+  left: 693px;
+  top: 148px;
+}
+
+.checkInTimeTo2 {
+  left: 863px;
+  top: 148px;
+}
+
+.facilityCampingCheckbox,
+.facilityGlampingCheckbox,
+.facilityCaravanCheckbox,
+.facilityPensionCheckbox,
+.facilityCampingCheckbox2,
+.facilityGlampingCheckbox2,
+.facilityCaravanCheckbox2,
+.facilityPensionCheckbox2 {
+  position: absolute;
+}
+
+.facilityCampingCheckbox {
+  left: 126px;
+  top: 184px;
+}
+
+.facilityGlampingCheckbox {
+  left: 217px;
+  top: 184px;
+}
+
+.facilityCaravanCheckbox {
+  left: 308px;
+  top: 184px;
+}
+
+.facilityPensionCheckbox {
+  left: 392px;
+  top: 184px;
+}
+
+.facilityCampingCheckbox2 {
+  left: 634px;
+  top: 184px;
+}
+
+.facilityGlampingCheckbox2 {
+  left: 725px;
+  top: 184px;
+}
+
+.facilityCaravanCheckbox2 {
+  left: 816px;
+  top: 184px;
+}
+
+.facilityPensionCheckbox2 {
+  left: 900px;
+  top: 184px;
+}
+
+.nextButton {
+  width: 110px;
+  height: 32px;
+  position: absolute;
+  background: black;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  left: 425px;
+  top: 459px;
+}
+
+.buttonText {
+  color: white;
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 500;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.photoPreview,
+.photoPreview2 {
+  width: 336px;
+  height: 150px;
+  max-width: 336px;
+  max-height: 150px;
+  position: absolute;
+  background: #D9D9D9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoPreview {
+  left: 49px;
+  top: 288px;
+}
+
+.photoPreview2 {
+  left: 557px;
+  top: 288px;
+}
+
+.photoPreview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
