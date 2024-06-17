@@ -8,7 +8,7 @@ function SearchResultPage({ searchResults }) {
 
   const handleResultClick = (groundID) => {
     console.log(`Selected groundID: ${groundID}`);
-    navigate('/detail');
+    navigate('/results-details');
   };
 
   return (
