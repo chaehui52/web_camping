@@ -1,19 +1,43 @@
 import React, { useState } from 'react';
-import './LoginPage.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './LoginPage.css'
+
+const api = axios.create({
+  baseURL: 'http://localhost:4000',
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 function LoginPage() {
+  const navigate = useNavigate();
   const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (event) => {
-    event.preventDefault(); // 폼의 기본 동작 방지
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-    // 여기서는 예시로 콘솔에 출력하지만, 실제로는 서버로 데이터를 보내 로그인 처리를 할 수 있습니다.
-    console.log('UserID:', userid);
-    console.log('Password:', password);
+    const formData = {
+      userid,
+      password,
+    };
 
-    // 로그인 후에 다음 작업을 수행할 수 있습니다.
-    // 예: 로그인 상태를 앱 전역에서 관리하거나, 다른 페이지로 이동 등
+    try {
+      const response = await api.post('/api/login', formData);
+
+      // 로그인 성공 시 처리
+      console.log('로그인 성공:', response.data);
+
+      // 로그인 성공 후 MainPage로 이동
+      navigate('/main');
+    } catch (error) {
+      // 로그인 실패 시 처리
+      console.error('로그인 실패:', error.message);
+      // 에러 메시지를 사용자에게 표시하거나 다른 처리를 수행할 수 있습니다.
+      navigate('/main');
+    }
   };
 
   return (
