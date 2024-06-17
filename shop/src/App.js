@@ -101,9 +101,9 @@ function App() {
   //return <LoginPage/>
   return <MainPage/>
   //return <SearchResultPage results={results} />
-  //return <DetailInformationPage/>
+  return <DetailInformationPage/>
   //return <RegisterSitePage/>
-  //return <WriteReviewPage/>
+  // return <WriteReviewPage/>
   //return <RegisterCampingPage/>
   // return <WriteReviewCheck reviews={reviews} />
 

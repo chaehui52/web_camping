@@ -5,12 +5,14 @@ import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios'; // Axios 라이브러리 추가
 import { useNavigate } from 'react-router-dom'
 
+// Axios 인스턴스 생성
 const api = axios.create({
-  baseURL: 'http://localhost:4000',
-  timeout: 10000,
+  baseURL: 'http://localhost:4000', // baseURL 설정
+  timeout: 10000, // 요청 타임아웃 설정 (옵션)
   headers: {
     'Content-Type': 'application/json',
-  },
+    // 기타 필요한 헤더 설정
+  }
 });
 
 function MainPage() {
@@ -20,7 +22,6 @@ function MainPage() {
   const [checkInTime2, setCheckInTime2] = useState(null);
   const [campName, setCampName] = useState('');
   const [facilities, setFacilities] = useState([]);
-  const navigate = useNavigate();
 
   const handleSidoChange = (e) => {
     setSelectedSido(e.target.value);
@@ -65,19 +66,19 @@ function MainPage() {
       campName,
       selectedSido,
       selectedSigungu,
-      checkInTime1,
-      checkInTime2,
-      facilities,
+      checkInTime1: checkInTime1 ? checkInTime1.toISOString() : '',
+      checkInTime2: checkInTime2 ? checkInTime2.toISOString() : '',
+      facilities
     };
 
     api.get('/camp/search', formData)
       .then(response => {
         console.log('서버 응답:', response.data);
-        navigate('/search-results', { state: { searchResults: response.data } });
+        // 서버 응답에 따라 추가적인 로직을 처리할 수 있습니다.
       })
       .catch(error => {
         console.error('서버 요청 실패:', error);
-        navigate('/search-results');
+        // 에러 처리 로직을 추가할 수 있습니다.
       });
   };
   
@@ -424,6 +425,7 @@ function MainPage() {
                   <option value="합천군">합천군</option>
                 </>
               )}
+              {/* 다른 시/군/구 옵션들 추가 */}
             </select>
           </form>
         </div>
